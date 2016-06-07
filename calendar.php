@@ -24,7 +24,7 @@
         <link href="assets/css/pages.css" rel="stylesheet" type="text/css">
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css">
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
-
+		
         <script src="assets/js/modernizr.min.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -212,7 +212,7 @@
                             </li> -->
 
                             <li>
-                                <a href="calendar.html" class="waves-effect active"><i class="md md-event"></i><span> Calendar </span></a>
+                                <a href="calendar.php" class="waves-effect active"><i class="md md-event"></i><span> Calendar </span></a>
                             </li>
                              <li>
                                 <a href="inbox.php" class="waves-effect"><i class="md md-messenger"></i><span> Messages </span></a>

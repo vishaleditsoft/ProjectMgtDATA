@@ -35,6 +35,13 @@ include("connection.php");
 
         <script src="assets/js/modernizr.min.js"></script>
 <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-65046120-1', 'auto');
+  ga('send', 'pageview');
 
 </script>
 
@@ -212,7 +219,7 @@ include("connection.php");
                             </li> -->
 
                             <li>
-                                <a href="calendar.html" class="waves-effect"><i class="md md-event"></i><span> Calendar </span></a>
+                                <a href="calendar.php" class="waves-effect"><i class="md md-event"></i><span> Calendar </span></a>
                             </li>
                              <li>
                                 <a href="inbox.php" class="waves-effect"><i class="md md-messenger"></i><span> Messages </span></a>
@@ -316,10 +323,10 @@ include("connection.php");
                                      $mem_p="";
                                      while($row=mysqli_fetch_array($ex2)){
                                         $mem_p=$row['mem_project'];
-                                       echo $mem_p.=$r['project_name'] ;
+                                        $mem_p.=$r['project_name'] ;
                                         }
 
-                                       echo 
+                                       //echo 
                                         $q3="insert into members ('mem_project') values ('$mem_p') where mem_name='$n'";
                                      $ex2=mysqli_query($conn,$q3);
                                    }

@@ -5,7 +5,7 @@ include_once('connection.php');
 session_start(); 
 if(!isset($_SESSION['manager_id'])){
 header("Location:index.php");
-    
+   
 }
 ?>
 <!DOCTYPE html>
@@ -228,7 +228,7 @@ header("Location:index.php");
                             </li> -->
 
                             <li>
-                                <a href="calendar.html" class="waves-effect"><i class="md md-event"></i><span> Calendar </span></a>
+                                <a href="calendar.php" class="waves-effect"><i class="md md-event"></i><span> Calendar </span></a>
                             </li>
 							 <li>
                                 <a href="inbox.php" class="waves-effect"><i class="md md-messenger"></i><span> Messages </span></a>
