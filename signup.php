@@ -41,7 +41,7 @@
 
 
 		<div >
-			<div class="modal-dialog modal-lg">
+			<div class="modal-dialog modal-sm">
 			<!--for small <div class="modal-dialog modal-sm"> -->
 				<div class="modal-content">
 					<!-- header -->
@@ -52,6 +52,7 @@
 					<!-- body -->
 					<div class="modal-body">
 						<form role="form" action="manger_registraion.php" method="POST" >
+							
 							<div class="form-group" >
 									<div ><input type="text" class="form-control" placeholder="Name" name="manager_name"></div>
 							</div>	
@@ -61,9 +62,7 @@
 							<div class="form-group">
 								<input type="text"  placeholder="Password" name="manager_password"class="form-control">
 							</div>
-							<div class="form-group">
-								<input type="text"  placeholder="Confirm Password" name="manager_cpassword"class="form-control">
-							</div>
+							
 							<div class="form-group">
 								<input type="text"  placeholder="Mobile-Number" class="form-control" name="manager_phone_no" maxlength="10">
 							</div>
@@ -73,7 +72,7 @@
 							</div>
 							
 							<div class="form-group">
-							<button type="submit" class="btn btn-primary btn-block">Sign-up</button>
+							<input type="submit" class="btn btn-primary btn-block" name="submit" value="Sign-up" />
 							</div>
 
 						</form>

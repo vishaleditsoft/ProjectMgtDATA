@@ -95,7 +95,7 @@ if(isset($_SESSION['manager_id']))
                         </div>
                         <div class="col-sm-5 text-right">
                         <br>
-                            <a href="register.html">Create an account</a>
+                            <a href="signup.php">Create an account</a>
                         </div>
                     </div>
                 </form> 
