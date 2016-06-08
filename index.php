@@ -84,7 +84,7 @@ if(isset($_SESSION['manager_id']))
                     
                     <div class="form-group text-center m-t-40">
                         <div class="col-xs-12">
-                            <button class="btn btn-primary btn-lg w-lg waves-effect waves-light" type="submit">Log In</button>
+                            <button class="btn btn-primary btn-lg w-lg waves-effect waves-light" type="submit" name="login">Log In</button>
                         </div>
                     </div><br>
 
