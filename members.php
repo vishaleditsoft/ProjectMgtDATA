@@ -294,51 +294,7 @@ include("connection.php");
 
 
 
-
-                                 <table class="table table-striped">
-                                    <tr>
-                                        <th>sr</th>
-                                        <th>project name</th>
-                                        <th>assign to</th>
-                                        <th>project_end_date</th>
-                                      
-                                    </tr>
-                                    <?php 
-                                    $qu="select * from project ";
-                                     $ex=mysqli_query($conn,$qu);
-                                     while($r=mysqli_fetch_array($ex)){
-                                     echo "<tr>
-                                        <td>".$r['project_id']."</td>
-                                        <td>".$r['project_name']."</td>
-                                        <td>".$r['assign_to']."</td>
-                                        <td>".$r['project_end_date']."</td>
-
-                                        
-                                    </tr>";
-                                    $ass=$r['assign_to'];
-                                    $name=explode(',',$ass);
-                                   foreach($name as $n){
-                                    $q2="select * from members where mem_name='$n' ";
-                                     $ex2=mysqli_query($conn,$q2);
-                                     $mem_p="";
-                                     while($row=mysqli_fetch_array($ex2)){
-                                        $mem_p=$row['mem_project'];
-                                        $mem_p.=$r['project_name'] ;
-                                        }
-
-                                       //echo 
-                                        $q3="insert into members ('mem_project') values ('$mem_p') where mem_name='$n'";
-                                     $ex2=mysqli_query($conn,$q3);
-                                   }
-                                }
-  
-
-
-                                    ?>
-
-
-
-                                </table>
+<!--  -->
                             </div>
                           
 
@@ -359,7 +315,7 @@ include("connection.php");
                 </div> <!-- content -->
 
                 <footer class="footer text-right">
-                    2015 © Moltran.
+                    2015 © Editsoft.
                 </footer>
 
             </div>
