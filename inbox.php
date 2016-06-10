@@ -306,7 +306,7 @@ session_start();
                                                          <?php  echo $result['date']; ?>
                                                          </td>
 													</form>
-														<td><form method="Post">!-->
+														<td><form method="Post">
 														 <input type="hidden" value="<?php echo $result['message_id'];?>" name="msid" id="m<?php echo $result['message_id'];?>">
 														 
 														 <button type="Submit" class="btn-danger"id="d<?php echo $result['message_id'];?>" >Delete Mail</button>
