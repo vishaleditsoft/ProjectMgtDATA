@@ -14,7 +14,7 @@ session_start();
         <meta name="author" content="Coderthemes">
 
         <link rel="shortcut icon" href="assets/images/favicon_1.ico">
-
+		 <link href="assets/plugins/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
         <title>Moltran - Responsive Admin Dashboard Template</title>
 
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -24,18 +24,11 @@ session_start();
         <link href="assets/css/pages.css" rel="stylesheet" type="text/css">
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css">
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
-
-        <script src="assets/js/modernizr.min.js"></script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-65046120-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
+		<script type = "text/javascript" src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		
+      <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+		
+        
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -206,11 +199,18 @@ session_start();
                             </li> -->
 
                             <li>
-                                <a href="calendar.html" class="waves-effect"><i class="md md-event"></i><span> Calendar </span></a>
+                                <a href="calendar.php" class="waves-effect"><i class="md md-event"></i><span> Calendar </span></a>
                             </li>
                              <li>
-                                <a href="inbox.php" class="waves-effect"><i class="md md-messenger"></i><span> Messages </span></a>
+							 <?php include('connection.php');
+							 $memail=$_SESSION['manger_email'];
+							$qurr="select `status` from `messages` where `status`='1' and `to`='$memail'";
+							 $res=mysqli_query($conn,$qurr);
+							 $rcout=mysqli_num_rows($res);
+							 ?>
+                                <a href="inbox.php" class="waves-effect"><i class="md md-messenger"></i><span> Messages (<?php echo $rcout;?>) </span></a>
                             </li>
+
 
                             
                         </ul>
@@ -279,23 +279,25 @@ session_start();
 												{
 													
 												?>
+												
+													
                                                     <tr>
+														
                                                         <td class="mail-select">
-                                                            <div class="checkbox checkbox-primary">
-                                                                <input id="checkbox1" type="checkbox" checked="checked">
-                                                                <label for="checkbox1">
-                                                                    
-                                                                </label>
-                                                            </div>
-                                                        </td>
+                                                                                                                    </td>
                                                         <td class="mail-rateing">
                                                             <i class="fa fa-star"></i>
                                                         </td>
+														<form action="email-read.php" method="Post">
+                                                        <td><button class="btn" style="display:inline-block;text-decoration=none;background-color:white">
+                                                            <?php echo $result['from']; ?>
+                                                        <input type="hidden" value="<?php echo $result['message_id'];?>" name="msid">
+														 </button>
+														 </td>
+															
+
                                                         <td>
-                                                            <a href="email-read.html"><?php echo $result['from']; ?></a>
-                                                        </td>
-                                                        <td>
-                                                            <a href="email-read.html"><i class="fa fa-circle text-info m-r-15"></i><?php  echo $result['subject']; ?></a>
+                                                           <i class="fa fa-circle text-info m-r-15"></i><?php  echo $result['subject']; ?>
                                                         </td>
                                                         <td>
                                                             <i class="fa fa-paperclip"></i>
@@ -303,7 +305,35 @@ session_start();
                                                         <td class="text-right">
                                                          <?php  echo $result['date']; ?>
                                                          </td>
-                                                    </tr>
+													</form>
+														<td><form method="Post">!-->
+														 <input type="hidden" value="<?php echo $result['message_id'];?>" name="msid" id="m<?php echo $result['message_id'];?>">
+														 
+														 <button type="Submit" class="btn-danger"id="d<?php echo $result['message_id'];?>" >Delete Mail</button>
+														</form>
+														<script>
+																		$(document).ready(function()
+																		{	
+																			$("#d<?php echo $result['message_id'];?>").click(function()
+																			{
+																			var conf=confirm("Are You Sure you want to delete");
+																			if(conf==true)
+																			{
+																				var na=$("#m<?php echo $result['message_id'];?>").val();
+																				$.post("dele.php",{msgid:na});
+																			}
+																			else
+																			{
+																				alert("You had press Cancel");
+																			}
+																			});
+																		});
+																		</script>
+														
+														</td>
+													                                                    </tr>
+													
+													
 												<?php } ?>
 
                                                 </tbody>
@@ -477,6 +507,11 @@ session_start();
         <script src="assets/js/jquery.scrollTo.min.js"></script>
 
         <script src="assets/js/jquery.app.js"></script>
+			<!--Sweet Alert!-->
+		 <script src="assets/plugins/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="assets/pages/jquery.sweet-alert.init.js"></script>
+	
+
 	
 	</body>
 

@@ -22,20 +22,11 @@
         <link href="assets/css/pages.css" rel="stylesheet" type="text/css">
         <link href="assets/css/menu.css" rel="stylesheet" type="text/css">
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
-
-        <script src="assets/js/modernizr.min.js"></script>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-65046120-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<link rel = "stylesheet" 
+         href = "//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+			
+    	
+                <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -275,7 +266,7 @@
                                         
                                         <form role="form" action="sendemail.php" method="post">
                                             <div class="form-group">
-                                                <input type="email" name="temail" class="form-control" placeholder="To">
+                                                <input type="email" id="toemail" name="temail" class="form-control" placeholder="To">
                                             </div>
                                             
                                             <div class="form-group">
@@ -443,7 +434,22 @@
         <!--Editor-->
         <script type="text/javascript" src="assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js"></script>
         <script type="text/javascript" src="assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js"></script>
-	
+		  <script type = "text/javascript" 
+         src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		
+      <script type = "text/javascript" 
+         src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+
+      <script type = "text/javascript" language = "javascript">
+	  
+	  
+	   $(function() {
+	   var mytags= <?php include('autocomple.php'); ?>;
+	   $("#toemail").autocomplete({
+	   source:mytags
+	   });
+	   });
+		 </script>
         <script>
             jQuery(document).ready(function(){
                 $('.wysihtml5').wysihtml5();
