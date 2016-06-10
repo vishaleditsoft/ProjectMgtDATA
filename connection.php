@@ -1,14 +1,17 @@
 <?php
-$host="localhost";
-$user="root";
-$pass="";
-$db="project_managemt";
-$conn=mysqli_connect("localhost","root","",$db);
-// or die(" database connection is not established:".mysqli_error());
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-//echo "Connected successfully";
+$dbhost = 'localhost';
+$dbuser = 'root';
+$dbpass = '';
+$dbname = 'project_managemt';
 
 
+// Create connection
+$conn=mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
+
+// Check connection
+if (mysqli_connect_errno($conn))
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+  
 ?>

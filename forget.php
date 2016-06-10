@@ -68,10 +68,10 @@ if(isset($_POST['reset'])){
 
 				Click on this link to change your account  Password: 
 				
-				http://localhost:82/Project_management/activation.php?admin_email_id=$email&act=$activation
+				http://". $_SERVER['SERVER_NAME']."/Project_management/activation.php?admin_email_id=$email&act=$activation
 
 				";
-				mail($to ,$subject,$body,"From: rokcer@gmail.com");
+				mail($to ,$subject,$body,"From: vishal.editsoft@gmail.com");
 
 		}
 		else{
