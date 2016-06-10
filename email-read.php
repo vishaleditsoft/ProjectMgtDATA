@@ -1,3 +1,9 @@
+<?php 
+    include('connection.php');
+session_start();
+
+    ?>
+
 <!DOCTYPE html>
 <html>
     
@@ -320,7 +326,8 @@
                                 <!-- Message -->
                                 <div class="panel panel-default m-t-20">
                                     <div class="panel-heading">
-										<?php include('connection.php');
+										<?php 
+                                      
 										$mid=$_POST['msid'];
 										$qu1="UPDATE  `messages` SET  `status` =  '0' WHERE  `message_id` =$mid";
 										$rsst=mysqli_query($conn,$qu1);
