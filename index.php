@@ -65,7 +65,7 @@ if(isset($_SESSION['manager_id']))
                     </div>
 
                     <div class="form-group">
-                        <div class="col-xs-12">
+                        <div class="col-xs-12"><br>
                             <input class="form-control input-lg" type="password" required name="manager_password" placeholder="Password">
                         </div>
                     </div>
