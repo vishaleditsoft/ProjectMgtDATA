@@ -91,7 +91,7 @@ if(isset($_SESSION['manager_id']))
                     <div class="form-group m-t-30">
                         <div class="col-sm-7">
                         <br>
-                            <a href="recoverpw.html"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
+                            <a href="forget.php"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
                         </div>
                         <div class="col-sm-5 text-right">
                         <br>
