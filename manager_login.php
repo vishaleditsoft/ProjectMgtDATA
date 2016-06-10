@@ -25,7 +25,7 @@ $result=mysqli_query($conn,$query);
 			}
 			if($status==1)
 			{
-				header('location:dashboard.php');
+				header('location:projects.php');
 				
 				$_SESSION['manager_id']=$adminid;
 				$_SESSION['manager_name']=$manager_name;

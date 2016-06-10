@@ -239,7 +239,7 @@ header("Location:index.php");
                     <div id="sidebar-menu">
                         <ul>
                             <li>
-                                <a href="dashboard.php" class="waves-effect active"><i class="md md-my-library-books"></i><span> Dashboard </span></a>
+                                <a href="projects.php" class="waves-effect active"><i class="md md-my-library-books"></i><span>Projects</span></a>
                             </li>
 							    
                             
@@ -256,6 +256,7 @@ header("Location:index.php");
                             </li>
 							 <li>
 							 <?php include('connection.php');
+							
 							 $memail=$_SESSION['manger_email'];
 							$qurr="select `status` from `messages` where `status`='1' and `to`='$memail'";
 							 $res=mysqli_query($conn,$qurr);

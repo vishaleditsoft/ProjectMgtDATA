@@ -183,12 +183,36 @@ session_start();
 
 
                     <!--- Divider -->
+                    <div class="left side-menu">
+                <div class="sidebar-inner slimscrollleft">
+                    <div class="user-details">
+                        <div class="pull-left">
+                            <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md img-circle">
+                        </div>
+                        <div class="user-info">
+                            <div class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Manager <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a></li>
+                                    <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
+                                    <li><a href="javascript:void(0)"><i class="md md-lock"></i> Lock screen</a></li>
+                                    <li><a href="logout.php"><i class="md md-settings-power"></i> Logout</a></li>
+                                </ul>
+                            </div>
+                            
+                            <p class="text-muted m-0">Administrator</p>
+                        </div>
+                    </div>
+                   
+
+
+                    <!--- Divider -->
                     <div id="sidebar-menu">
                         <ul>
                             <li>
-                                <a href="dashboard.php" class="waves-effect active"><i class="md md-my-library-books"></i><span> Dashboard </span></a>
+                                <a href="projects.php" class="waves-effect active"><i class="md md-my-library-books"></i><span>Projects</span></a>
                             </li>
-                                
+							    
                             
                              <li>
                                 <a href="members.php" class="waves-effect"><i class="fa fa-user-plus"></i><span> Members </span></a>
@@ -201,7 +225,7 @@ session_start();
                             <li>
                                 <a href="calendar.php" class="waves-effect"><i class="md md-event"></i><span> Calendar </span></a>
                             </li>
-                             <li>
+							 <li>
 							 <?php include('connection.php');
 							 $memail=$_SESSION['manger_email'];
 							$qurr="select `status` from `messages` where `status`='1' and `to`='$memail'";
@@ -210,12 +234,17 @@ session_start();
 							 ?>
                                 <a href="inbox.php" class="waves-effect"><i class="md md-messenger"></i><span> Messages (<?php echo $rcout;?>) </span></a>
                             </li>
-
-
+						
                             
                         </ul>
                         <div class="clearfix"></div>
                     </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
                     <div class="clearfix"></div>
                 </div>
             </div>

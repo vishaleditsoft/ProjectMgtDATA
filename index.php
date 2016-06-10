@@ -4,7 +4,7 @@ session_start();
 if(isset($_SESSION['manager_id']))
 {
 
-	header("location:dashboard.php");
+	header("location:projects.php");
 }
 ?>
 
