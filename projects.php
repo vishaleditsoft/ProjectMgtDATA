@@ -345,7 +345,7 @@ header("Location:index.php");
 													<li><strong>Project Creation date</strong> <?php echo $result['project_creation_date'];?></li>
 													<li><strong>Project End date</strong> <?php echo $result['project_end_date'];?></li>
 													<li><strong>Project Last update</strong> <?php echo $result['project_last_update'];?></li>
-													<li><strong>Project Documents</strong> <a href=<?php echo $result['project_document'];?>>Downloads</a></li>
+													<li><strong>Project Documents</strong> <a href=<?php echo $result['project_document'];?> target="_blank">Downloads</a></li>
                                                 </ul>
                                                 <button class="md-close btn-sm btn-primary waves-effect waves-light">Close me!</button>
                                             </div>                                        </div>
@@ -369,7 +369,7 @@ header("Location:index.php");
                                                 <h4 class="modal-title"><strong>Add</strong> a Project</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <form role="form" action="addproject.php" method="POST">
+                                                <form role="form" action="addproject.php" method="POST" enctype="multipart/form-data">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label class="control-label">Project Name</label>
