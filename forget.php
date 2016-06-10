@@ -46,15 +46,57 @@
 <?php 
 if(isset($_POST['reset'])){
 
+		$email=$_POST['email'];
+		include("connection.php");
+		$query="select * from admin where admin_email_id='$email'";
+		$exe=mysqli_query($conn,$query);
+		if(mysqli_num_rows($exe)>0){
+				echo '
+				<div class="wrapper-page">
+				<div class="alert alert-success alert-dismissable ">
+				                       Check your  <b>Email</b> instructions will be sent to you!
+				                    </div>
+				</div>
+				';
+				$row=mysqli_fetch_assoc($exe);
+				$activation= $row['activation'];
 
+				$to=$email;
+				$subject="Requesting for password change.";
+				$body=" 
+				
+
+				Click on this link to change your account  Password: 
+				
+				http://localhost:82/Project_management/activation.php?admin_email_id=$email&act=$activation
+
+				";
+				mail($to ,$subject,$body,"From: rokcer@gmail.com");
+
+		}
+		else{
+
+				echo '
+				<div class="wrapper-page">
+				<div class="alert alert-danger alert-dismissable ">
+				                        
+				                       You havent register ..!! so please register.
+				                    </div>
+				</div>
+
+
+
+				';
+
+
+		}
 
 
 }
 else{
 
 
-	
-}
+
 echo '
 
 
@@ -109,6 +151,7 @@ echo '
         <script src="assets/js/jquery.app.js"></script>
 
 ';
+}
 
 ?>
 	
