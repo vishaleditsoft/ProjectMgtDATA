@@ -5,7 +5,7 @@
                     <div id="sidebar-menu">
                         <ul>
                             <li>
-                                <a href="projects.php" class="waves-effect active"><i class="md md-my-library-books"></i><span>Projects</span></a>
+                                <a href="projects.php" class="waves-effect "><i class="md md-my-library-books"></i><span>Projects</span></a>
                             </li>
 							    
                             
@@ -27,7 +27,7 @@
 							 $res=mysqli_query($conn,$qurr);
 							 $rcout=mysqli_num_rows($res);
 							 ?>
-                                <a href="inbox.php" class="waves-effect"><i class="md md-messenger"></i><span> Messages (<?php echo $rcout;?>) </span></a>
+                                <a href="inbox.php" class="waves-effect active"><i class="md md-messenger"></i><span> Messages (<?php echo $rcout;?>) </span></a>
                             </li>
 						
                             
@@ -54,12 +54,7 @@
                 <!-- Start content -->
                 <div class="content">
                     <div class="container">
-
-
-
-
                         <div class="row">
-                            
                             <!-- Left sidebar -->
                             <div class="col-md-4 col-lg-3">
                                 <a href="email-compose.html" class="btn btn-danger waves-effect waves-light btn-block">Compose</a>
@@ -67,20 +62,14 @@
                                 <div class="panel panel-default p-0 m-t-20">
                                     <div class="panel-body p-0">
                                         <div class="list-group mail-list">
-                                          <a href="#" class="list-group-item no-border active"><i class="fa fa-download m-r-5"></i>Inbox <b>(8)</b></a>
-                                          <a href="#" class="list-group-item no-border"><i class="fa fa-paper-plane-o m-r-5"></i>Sent Mail</a>
+                                          <a href="inbox.php" class="list-group-item no-border active"><i class="fa fa-download m-r-5"></i>Inbox <b>(8)</b></a>
+                                          <a href="email-sent.php" class="list-group-item no-border"><i class="fa fa-paper-plane-o m-r-5"></i>Sent Mail</a>
                                           
                                         </div>
                                     </div>
                                 </div>
 
-                                <h3 class="panel-title m-t-40"></h3>
-                                <div class="panel panel-default p-0 p-t-20 m-t-20">
-                                    <div class="panel-body p-0">
-                                        
-                                    </div>
-                                </div>
-                                
+                               
                             </div>
                             <!-- End Left sidebar -->
                             
@@ -106,31 +95,28 @@
                                 <div class="panel panel-default m-t-20">
                                     <div class="panel-heading">
 										<?php 
-                                      
-										$mid=$_POST['msid'];
-										$qu1="UPDATE  `messages` SET  `status` =  '0' WHERE  `message_id` =$mid";
-										$rsst=mysqli_query($conn,$qu1);
-										$que1="select * from `messages` where message_id=$mid";
+
+									$que1="select * from messages where `from`='".$_SESSION['manger_email']."'";
 										$rest=mysqli_query($conn,$que1);
 										
-										while($res=mysqli_fetch_assoc($rest))
+										while($res=mysqli_fetch_array($rest))
 										{	
 										?>
-											
-										<h3 class="panel-title"><?php echo $res['from'];?></h3> 
+
                                     </div>
                                     <div class="panel-body">
-                                        <div class="media m-b-30">
+                                        <div class="media m-b-30" style="margin-bottom:10px;">
                                             
                                             <div class="media-body">
                                                 <span class="media-meta pull-right"><?php echo $res['date'];?></span>
                                                
-                                                <small class="text-muted"><?php echo $res['from'];?></small>
+                                                To:<small class="text-muted"><?php echo $res['to'];?></small>
                                             </div>
                                         </div> <!-- media -->
-										<b><?php echo $res['subject']; ?></b>
-                                        <p>
+										Subject:<b><?php echo $res['subject']; ?></b>
+                                       <p> Message:
 										<?php echo $res['content'];
+                                        echo "<hr>";
 										}
 										?>
 										</p>

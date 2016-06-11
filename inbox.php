@@ -65,7 +65,7 @@
                                     <div class="panel-body p-0">
                                         <div class="list-group mail-list">
                                           <a href="inbox.php" class="list-group-item no-border active"><i class="fa fa-download m-r-5"></i>Inbox <b></b></a>
-                                         <a href="#" class="list-group-item no-border"><i class="fa fa-paper-plane-o m-r-5"></i>Sent Mail</a>
+                                         <a href="email-sent.php" class="list-group-item no-border"><i class="fa fa-paper-plane-o m-r-5"></i>Sent Mail</a>
                                         </div>
                                     </div>
                                 </div>
