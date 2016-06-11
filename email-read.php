@@ -67,8 +67,8 @@
                                 <div class="panel panel-default p-0 m-t-20">
                                     <div class="panel-body p-0">
                                         <div class="list-group mail-list">
-                                          <a href="#" class="list-group-item no-border active"><i class="fa fa-download m-r-5"></i>Inbox <b>(8)</b></a>
-                                          <a href="#" class="list-group-item no-border"><i class="fa fa-paper-plane-o m-r-5"></i>Sent Mail</a>
+                                          <a href="inbox.php" class="list-group-item no-border active"><i class="fa fa-download m-r-5"></i>Inbox <b>(8)</b></a>
+                                          <a href="email-sent.php" class="list-group-item no-border"><i class="fa fa-paper-plane-o m-r-5"></i>Sent Mail</a>
                                           
                                         </div>
                                     </div>
@@ -87,21 +87,6 @@
 
                             <!-- Right Sidebar -->
                             <div class="col-md-8 col-lg-9">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="btn-toolbar" role="toolbar">
-                                            <div class="btn-group">
-                                                
-                                            </div>
-                                            
-                                                                                        
-                                            
-                                        </div>
-                                    </div>
-                                    
-                                </div> <!-- End row -->
-                                
-
                                 <!-- Message -->
                                 <div class="panel panel-default m-t-20">
                                     <div class="panel-heading">
