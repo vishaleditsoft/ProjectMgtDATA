@@ -22,7 +22,7 @@ $querp=mysqli_query($conn,$quer);
 
  ?>
  alert("Project Deleted");
- <?php //header('location:projects.php');?>
+ <?php header('location:projects.php');?>
 }
 else
 {
