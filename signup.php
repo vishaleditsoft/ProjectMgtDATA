@@ -60,21 +60,21 @@ if(isset($_SESSION['manager_id']))
                <form role="form" action="manger_registraion.php" method="POST" >
 							
 							<div class="form-group" >
-									<div ><input type="text" class="form-control" placeholder="Name" name="manager_name"></div>
+									<div ><input type="text" class="form-control" placeholder="Name" name="manager_name" required autofocus></div>
 							</div>	
 							<div class="form-group">
-								<input type="email"  placeholder="E-mail" class="form-control" name="manager_email" >
+								<input type="email" required  placeholder="E-mail" class="form-control" name="manager_email" >
 							</div>	
 							<div class="form-group">
-								<input type="text"  placeholder="Password" name="manager_password"class="form-control">
+								<input type="password" required  placeholder="Password" name="manager_password"class="form-control">
 							</div>
 							
 							<div class="form-group">
-								<input type="text"  placeholder="Mobile-Number" class="form-control" name="manager_phone_no" maxlength="10">
+								<input type="text" required  placeholder="Mobile-Number" class="form-control" name="manager_phone_no" maxlength="10" minlength="10">
 							</div>
 
 							<div class="form-group">
-								<input type="text"  placeholder="Company Name" name="company_name"class="form-control">
+								<input type="text"  placeholder="Company Name" required name="company_name"class="form-control">
 							</div>
 							
 							<div class="form-group">

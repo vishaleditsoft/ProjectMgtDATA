@@ -327,9 +327,11 @@ header("Location:index.php");
 																{?>
 																<tr>
 																
-																<td ><a style="width:100%;" href="javascript:;" class="md-trigger btn btn-primary waves-effect waves-light" data-modal="mo<?php echo $result['project_id'];?>">	
+																<td><a style="width:100%;" href="javascript:;" class="md-trigger btn btn-primary waves-effect waves-light" data-modal="mo<?php echo $result['project_id'];?>">	
 																<?php echo $result['project_name'];?></a> 
 																</td>
+																<td><a style="width:100%;" href="javascript:;" class="md-trigger btn btn-primary waves-effect waves-light" data-modal="ed<?php echo $result['project_id'];?>">	
+																Edit</a></td>
 																</tr>
 															 <div class="md-modal md-effect-8" id="mo<?php echo $result['project_id'];?>">
                                         <div class="md-content">
@@ -346,6 +348,59 @@ header("Location:index.php");
 													<li><strong>Project Documents</strong> <a href=<?php echo $result['project_document'];?> target="_blank">Downloads</a></li>
                                                 </ul>
                                                 <button class="md-close btn-sm btn-primary waves-effect waves-light">Close me!</button>
+                                            </div>                                        </div>
+                                    </div>
+													 <div class="md-modal md-effect-8" id="ed<?php echo $result['project_id'];?>">
+                                        <div class="md-content">
+                                            <h3>Project Details</h3>
+                                            <div>
+                                                <form role="form" action="editproj.php" method="POST" enctype="multipart/form-data">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label class="control-label">Project Name</label>
+                                                            <input class="form-control form-white" value=<?php echo $result['project_name'];?> placeholder="Project name" type="text" name="proj_name">
+                                                        </div>
+														
+                                                        <div class="col-md-6">
+                                                            <label class="control-label">Discription</label>
+															<input class="form-control form-white" placeholder="Descption of Project" type="text" name="proj_desc" value="<?php echo $result['project_desc'];?>">
+                                                        </div>
+														 <div class="col-md-6">
+                                                            <label class="control-label">Assign to</label>
+															<input class="form-control form-white" id="assignto" placeholder="Memmber to Assign to Project" type="text" name="assign_to" value="<?php echo $result['assign_to'];?>"> 
+                                                        </div>
+														<div class="col-md-6">
+                                                            <label class="control-label">Member ID</label>
+                                                            <input class="form-control form-white" class="memid"	placeholder="Member" type="text" name="proj_member_id">
+                                                        </div>
+														<div class="col-md-6">
+                                                            <label class="control-label">Milestion</label>
+															<input class="form-control form-white" placeholder="Milestone" type="text" value="<?php echo $result['project_milestone'];?>" name="mile_stone">
+                                                        </div>
+														
+													<div class="col-md-6">
+                                                            <label class="control-label">Deadline</label>
+                                                            <div class="input-group">
+							                                    <input type="text" class="form-control form-white" placeholder="mm/dd/yyyy" id="datepicker" name="proj_dead" value="<?php echo $result['project_end_date'];?>">
+							                                    <span class="input-group-addon">
+							                                    <i class="glyphicon glyphicon-calendar"></i></span>
+							                                </div>
+															
+                                                        </div>
+														<div class="col-md-6">
+                                                            <label class="control-label">Documents</label>
+															<input class="form-control" placeholder="Project Documents" type="file" name="proj_doco">
+														</div>
+                                                    </div>
+													<input type="hidden" name="pid" value="<?php echo $result['project_id']; ?>">
+													<div class="row">
+													<div class="col-md-6">
+														<button type="submit" class="btn btn-default waves-effect">Submit</button>
+
+													</div>
+													</div>
+                                                </form>
+                                               <button class="md-close btn-sm btn-primary waves-effect waves-light">Close me!</button>
                                             </div>                                        </div>
                                     </div>
 

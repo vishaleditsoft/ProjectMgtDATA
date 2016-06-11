@@ -291,8 +291,8 @@ session_start();
                         <!-- add member link -->
                         <div class="row" style="margin-bottom:20px;">
                             <div class="col-sm-12">
-                                
-                           <button class="btn btn-danger" data-toggle="modal" data-target="#add">Add new member</button>
+                               <button class="btn btn-danger" data-toggle="modal" data-target="#add">Add new member</button>
+                             
                             </div>
                         </div>
 
