@@ -15,6 +15,6 @@ $addpro_query="insert into project(`project_name`,`project_manger_id`,`project_m
 $quer="update project set project_name='$proj_name', assign_to='$proj_assign',project_manger_id='$proj_mem_id',project_desc='$proj_desc', project_end_date='$proj_dead',
 project_milestone='$proj_miles' where project_id='$pid'";
 $res=mysqli_query($conn,$quer);
-
+header("Location:projects.php");
 
  ?>
