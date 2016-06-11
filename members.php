@@ -2,6 +2,7 @@
 <?php
 
 include("connection.php");
+session_start();
 
 
  ?>
@@ -246,8 +247,8 @@ include("connection.php");
                                 <a href="calendar.php" class="waves-effect"><i class="md md-event"></i><span> Calendar </span></a>
                             </li>
 							 <li>
-							 <?php include('connection.php');
-							  session_start();
+							 <?php 
+							
 							 $memail=$_SESSION['manger_email'];
 							$qurr="select `status` from `messages` where `status`='1' and `to`='$memail'";
 							 $res=mysqli_query($conn,$qurr);
@@ -290,10 +291,12 @@ include("connection.php");
                         <!-- add member link -->
                         <div class="row" style="margin-bottom:20px;">
                             <div class="col-sm-12">
-                                
-                           <button class="btn btn-danger" data-toggle="modal" data-target="#add">Add new member</button>
+                               <button class="btn btn-danger" data-toggle="modal" data-target="#add">Add new member</button>
+                             
                             </div>
                         </div>
+
+
                         <!-- add member link end -->
                         <!-- Start Widget -->
                         <!--Widget-4 -->
@@ -447,15 +450,19 @@ include("connection.php");
                     
                     <!-- body(form) -->
                     <div class="modal-body">
-                        <form role="form" method="post" action="">
+                        <form role="form" method="post" action="addmember.php">
                             
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Name" name="user_name" >
                             </div>
 
                             <div class="form-group">
-                                <input type="" class="form-control" placeholder="knowledge Field " name="knowledge_f"> 
+                                <input type="" class="form-control" placeholder="E-mail" name="email"> 
                             </div>
+                                  <div class="form-group">
+                                <input type="" class="form-control" placeholder="Mobile" name="mobile"> 
+                            </div>
+                        <button type="submit" class="btn btn-primary btn-block" name="add_mem">Add</button>
 
 
                         </form>
@@ -463,7 +470,6 @@ include("connection.php");
 
                     <!-- footer -->
                     <div class="modal-footer">
-                        <button class="btn btn-primary btn-block">Log-In</button>
                     </div>
                 </div>
             </div>

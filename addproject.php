@@ -22,7 +22,11 @@ else  {
 		$destt="upload/".$manger_id."/".$proj_doc;
 		move_uploaded_file($proj_temp, $destt);
 		}	
+<<<<<<< HEAD
+ $destt;
+=======
 //	echo $destt;
+>>>>>>> 4f941a1165b4441984beb2cb693567ed13bf3cee
 $addpro_query="insert into project(`project_name`,`project_manger_id`,`project_member_id`,`assign_to`,`project_desc`,`project_milestone`,`project_document`,`project_end_date`) values('$proj_name','$manger_id','$proj_mem_id','$proj_assign','$proj_desc','$proj_miles','$destt','$proj_dead')";
 $quer=mysqli_query($conn,$addpro_query);
 header('location:projects.php');
