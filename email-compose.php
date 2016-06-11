@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+
+<?php 
+
+include_once('connection.php');
+session_start(); 
+if(!isset($_SESSION['manager_id'])){
+header("Location:index.php");
+   
+}
+?><!DOCTYPE html>
 <html>
     
 <!-- Mirrored from moltran.coderthemes.com/green/email-compose.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 May 2016 13:47:44 GMT -->
@@ -223,8 +232,7 @@
                                 <a href="calendar.php" class="waves-effect"><i class="md md-event"></i><span> Calendar </span></a>
                             </li>
 							 <li>
-							 <?php include('connection.php');
-							 session_start();
+							 <?php 
 							 $memail=$_SESSION['manger_email'];
 							$qurr="select `status` from `messages` where `status`='1' and `to`='$memail'";
 							 $res=mysqli_query($conn,$qurr);

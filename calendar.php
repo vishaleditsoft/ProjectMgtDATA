@@ -1,7 +1,13 @@
 
- <?php include('connection.php');
-      session_start();
-      ?>
+<?php 
+
+include_once('connection.php');
+session_start(); 
+if(!isset($_SESSION['manager_id'])){
+header("Location:index.php");
+   
+}
+?>
 
 <!DOCTYPE html>
 <html>
