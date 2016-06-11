@@ -1,0 +1,838 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0055)http://www.the-art-of-web.com/javascript/validate-date/ -->
+<html lang="en_GB"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Form Validation: Date and Time &lt; JavaScript | The Art of Web</title>
+  <meta name="description" content="Using JavaScript to validate date and time input fields.  Regular expressions for validation of various date and time formats.  Working examples.">
+  <meta name="keywords" content="date, javascript, validation, validate, time, format, form, code, html, java, using, check, script, input, birth, valid, http:, field, expression, regular">
+  <meta name="author" content="Chirp Internet">
+  <link rel="stylesheet" type="text/css" href="./Form Validation  Date and Time   JavaScript   The Art of Web_files/A.table_formatting.css+form_formatting.css+social-sharing.css,Mcc.6ezJxL7IEF.css.pagespeed.cf.-qP_6XgwtB.css">
+  
+  
+  <link rel="stylesheet" type="text/css" href="./Form Validation  Date and Time   JavaScript   The Art of Web_files/A.style.css.pagespeed.cf.c5pfwUTgmr.css">
+  <link rel="stylesheet" type="text/css" href="./Form Validation  Date and Time   JavaScript   The Art of Web_files/A.chirp_lightbox.css.pagespeed.cf.YXeGzk7ZG-.css">
+  <link rel="alternate" type="application/rss+xml" title="RSS: New and updated articles" href="http://www.the-art-of-web.com/rss.xml">
+</head>
+
+<body>
+
+<!--htdig_noindex-->
+<a class="chirplink" accesskey="S" href="http://www.the-art-of-web.com/javascript/validate-date/#content">skip to content</a>
+<!--/htdig_noindex-->
+
+<div id="header">
+<!--htdig_noindex-->
+<div id="menu">
+<form id="searchbox" method="POST" action="http://www.the-art-of-web.com/searchresult.html" accept-charset="UTF-8" onsubmit="return words.value.length &gt; 2;">
+<input id="sitesearch" type="search" results="10" autosave="searches" name="words" placeholder="Search">
+<ul id="suggest"><li></li></ul>
+</form>
+<ul>
+  <li><a accesskey="1" href="http://www.the-art-of-web.com/">Home</a></li>
+  <li><a accesskey="2" href="http://www.the-art-of-web.com/html/">HTML</a></li>
+  <li><a accesskey="3" href="http://www.the-art-of-web.com/css/">CSS</a></li>
+  <li><a accesskey="4" href="http://www.the-art-of-web.com/javascript/">JavaScript</a></li>
+  <li><a accesskey="5" href="http://www.the-art-of-web.com/php/">PHP</a></li>
+  <li><a accesskey="6" href="http://www.the-art-of-web.com/sql/">SQL</a></li>
+  <li><a accesskey="7" href="http://www.the-art-of-web.com/system/">System</a></li>
+  <li><a accesskey="8" href="http://www.the-art-of-web.com/links/">Links</a></li>
+</ul>
+</div>
+<!--/htdig_noindex-->
+</div>
+
+<div id="rhs">
+<script async="" src="./Form Validation  Date and Time   JavaScript   The Art of Web_files/analytics.js"></script><script async="" type="text/javascript" src="http://pagead2.googlesyndication.com/pub-config/ca-pub-9789897350102210.js"></script><script async="" src="./Form Validation  Date and Time   JavaScript   The Art of Web_files/adsbygoogle.js"></script>
+<!-- Art of Web side banner -->
+<ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px" data-ad-client="ca-pub-9789897350102210" data-ad-slot="6614597854" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px;background-color:transparent"><ins id="aswift_0_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px;background-color:transparent"><iframe width="160" height="600" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;"></iframe></ins></ins></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<div id="content">
+
+<div class="noprint" style="margin: 0.5em 0;">
+<script async="" src="./Form Validation  Date and Time   JavaScript   The Art of Web_files/adsbygoogle.js"></script>
+<!-- Art of Web top banner -->
+<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-9789897350102210" data-ad-slot="6258627248" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;"></iframe></ins></ins></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</div>
+
+<!--htdig_noindex-->
+<div id="submenu"><ol><li><a href="http://www.the-art-of-web.com/javascript/validate-date/#section_0">Checking for valid format</a></li><li><a href="http://www.the-art-of-web.com/javascript/validate-date/#section_1">Checking that input values are within bounds</a></li><li><a href="http://www.the-art-of-web.com/javascript/validate-date/#section_2">Modular checkDate() function</a></li><li><a href="http://www.the-art-of-web.com/javascript/validate-date/#section_3">Modular checkTime() function</a></li><li><a href="http://www.the-art-of-web.com/javascript/validate-date/#section_4">Using these functions for validation</a></li><li><a href="http://www.the-art-of-web.com/javascript/validate-date/#section_5">Adding HTML5 input validation</a></li><li><a href="http://www.the-art-of-web.com/javascript/validate-date/#section_6">Adjusting the code for different date formats</a></li><li><a href="http://www.the-art-of-web.com/javascript/validate-date/#section_7">Checking month endings and leap years</a></li><li><a href="http://www.the-art-of-web.com/javascript/validate-date/#section_8">References</a></li><li><a href="http://www.the-art-of-web.com/javascript/validate-date/#related">Related Articles - Form Validation</a></li><li><a href="http://www.the-art-of-web.com/javascript/validate-date/#user_comments">User Comments</a></li></ol></div>
+<!--/htdig_noindex-->
+
+<h1>JavaScript: Form Validation: Date and Time</h1>
+
+<p class="social_counters"><a class="tweets" title="Share on Twitter" target="_blank" href="https://twitter.com/intent/tweet?text=Form+Validation%3A+Date+and+Time&url=http%3A%2F%2Fwww.the-art-of-web.com%2Fjavascript%2Fvalidate-date%2F&via=theartofweb">4 Tweets</a><a class="likes" title="Share on Facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.the-art-of-web.com%2Fjavascript%2Fvalidate-date%2F">14 Likes</a><a class="gplus" title="Recommend on Google+" target="_blank" href="https://plus.google.com/share?url=http%3A%2F%2Fwww.the-art-of-web.com%2Fjavascript%2Fvalidate-date%2F">0 Shares</a><a id="show_feedback" class="feedback" title="Post Comment">Feedback</a></p>
+
+
+<p>When capturing information for insertion into a database, or use in 
+other processing, it's important to control what the user can enter.  
+Otherwise you can end up with values in the database that have no 
+relation to reality.</p>
+
+
+<h2 id="section_0">1. Checking for valid format</h2>
+
+<p>In this example, the date fields will only accept input that matches
+the pattern 'dd/mm/yyyy' (this could just as easily be changed to
+'yyyy-mm-dd' or 'mm/dd/yyyy').  The time field will allow input starting
+with 'hh:mm' following by an optional 'am' or 'pm'.  The fields can also
+be empty.</p>
+
+<script type="text/javascript">function checkForm(form)
+{re=/^\d{1,2}\/\d{1,2}\/\d{4}$/;if(form.startdate.value!=''&&!form.startdate.value.match(re)){alert("Invalid date format: "+form.startdate.value);form.startdate.focus();return false;}
+re=/^\d{1,2}:\d{2}([ap]m)?$/;if(form.starttime.value!=''&&!form.starttime.value.match(re)){alert("Invalid time format: "+form.starttime.value);form.starttime.focus();return false;}
+alert("All input fields have been validated!");return true;}</script>
+
+<form method="POST" action="./Form Validation  Date and Time   JavaScript   The Art of Web_files/Form Validation  Date and Time   JavaScript   The Art of Web.html" onsubmit="checkForm(this); return false;">
+<fieldset>
+<legend>Event Details</legend>
+<label for="field_startdate">Start Date</label><span><input id="field_startdate" type="text" size="12" placeholder="dd/mm/yyyy" name="startdate"> <small>(dd/mm/yyyy)</small></span>
+<label for="field_starttime">Start Time</label><span><input id="field_starttime" type="text" size="12" name="starttime"> <small>(eg. 00:51 or 12:51am)</small></span>
+<span><input type="submit"></span>
+</fieldset>
+</form>
+
+<p>The code behind the form is as follows:</p>
+
+<code>&lt;script type="text/javascript"&gt;
+
+  function checkForm(form)
+  {
+    // regular expression to match required date format
+    re = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+
+    if(form.startdate.value != '' &amp;&amp; !form.startdate.value.match(re)) {
+      alert("Invalid date format: " + form.startdate.value);
+      form.startdate.focus();
+      return false;
+    }
+
+    // regular expression to match required time format
+    re = /^\d{1,2}:\d{2}([ap]m)?$/;
+
+    if(form.starttime.value != '' &amp;&amp; !form.starttime.value.match(re)) {
+      alert("Invalid time format: " + form.starttime.value);
+      form.starttime.focus();
+      return false;
+    }
+
+    alert("All input fields have been validated!");
+    return true;
+  }
+
+&lt;/script&gt;</code>
+
+<p>For each field in the form (first the dates, then the time field), a
+check is made as to whether the input is blank.  If not, the input is
+compared to the regular expression.  The expressions use a pre-defined
+class <tt>\d</tt> which represents any numeric character (0-9).</p>
+
+<p>If you wanted to be really finicky the regular expression to match a
+date could also be written as:</p>
+
+<code>re = /^[0-3]?[0-9]\/[01]?[0-9]\/[12][90][0-9][0-9]$/</code>
+
+<p>If the input doesn't match the regular expression then an error
+message is presented, the routine stops the form from submitting by
+returning a <tt>false</tt> value and the focus is moved to the relevant
+form field.</p>
+
+<p>If all tests are passed, then a value of <tt>true</tt> is returned
+which enables the form to be submitted.</p>
+
+<p><b>This routine DOES NOT check that the date or time input values are 
+valid, just that they match the required format (d/m/y and h:m).  Read 
+further for more comprehensive checking.</b></p>
+
+
+<h2 id="section_1">2. Checking that input values are within bounds</h2>
+
+<p>Once you're in control of the input format, it's a lot easier to
+check that the values are actually valid.  The function has been
+improved now so that the day, month and year values are checked to
+ensure that they're in the right ball-bark (ie. 1-31 for the day and
+1-12 for the month).  Also the year must be between 1902 and the current
+year.
+
+</p><p>The year limitation would be used if you were asking for a date of
+birth or date of some recent event.  If you're setting up a calendar of
+future events you would check that the year is the current year or
+greater.</p>
+
+<script type="text/javascript">function checkForm2(form)
+{re=/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;if(form.startdate.value!=''){if(regs=form.startdate.value.match(re)){if(regs[1]<1||regs[1]>31){alert("Invalid value for day: "+regs[1]);form.startdate.focus();return false;}
+if(regs[2]<1||regs[2]>12){alert("Invalid value for month: "+regs[2]);form.startdate.focus();return false;}
+if(regs[3]<1902||regs[3]>(new Date()).getFullYear()){alert("Invalid value for year: "+regs[3]+" - must be between 1902 and "+(new Date()).getFullYear());form.startdate.focus();return false;}}else{alert("Invalid date format: "+form.startdate.value);form.startdate.focus();return false;}}
+re=/^(\d{1,2}):(\d{2})([ap]m)?$/;if(form.starttime.value!=''){if(regs=form.starttime.value.match(re)){if(regs[3]){if(regs[1]<1||regs[1]>12){alert("Invalid value for hours: "+regs[1]);form.starttime.focus();return false;}}else{if(regs[1]>23){alert("Invalid value for hours: "+regs[1]);form.starttime.focus();return false;}}
+if(regs[2]>59){alert("Invalid value for minutes: "+regs[2]);form.starttime.focus();return false;}}else{alert("Invalid time format: "+form.starttime.value);form.starttime.focus();return false;}}
+alert("All input fields have been validated!");return true;}</script>
+
+<form method="POST" action="./Form Validation  Date and Time   JavaScript   The Art of Web_files/Form Validation  Date and Time   JavaScript   The Art of Web.html" onsubmit="checkForm2(this); return false;">
+<fieldset>
+<legend>Event Details</legend>
+<label for="field_startdate2">Start Date</label><span><input id="field_startdate2" type="text" size="12" placeholder="dd/mm/yyyy" name="startdate"> <small>(dd/mm/yyyy)</small></span>
+<label for="field_starttime2">Start Time</label><span><input id="field_starttime2" type="text" size="12" name="starttime"> <small>(eg. 00:51 or 12:51am)</small></span>
+<span><input type="submit"></span>
+</fieldset>
+</form>
+
+<p>The code behind the form now is as follows:</p>
+
+<code id="box1" style="height: 400px;">&lt;script type="text/javascript"&gt;
+
+  function checkForm(form)
+  {
+    <i>// regular expression to match required date format</i>
+    re = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+
+    if(form.startdate.value != '') {
+      if(regs = form.startdate.value.match(re)) {
+        <i>// day value between 1 and 31</i>
+        if(regs[1] &lt; 1 || regs[1] &gt; 31) {
+          alert("Invalid value for day: " + regs[1]);
+          form.startdate.focus();
+          return false;
+        }
+        <i>// month value between 1 and 12</i>
+        if(regs[2] &lt; 1 || regs[2] &gt; 12) {
+          alert("Invalid value for month: " + regs[2]);
+          form.startdate.focus();
+          return false;
+        }
+        <i>// year value between 1902 and 2015</i>
+        if(regs[3] &lt; 1902 || regs[3] &gt; (new Date()).<a href="http://developer.mozilla.org/en/docs/Core_JavaScript_1.5_Reference:Objects:Date:getFullYear" target="_blank">getFullYear</a>()) {
+          alert("Invalid value for year: " + regs[3] + " - must be between 1902 and " + (new Date()).getFullYear());
+          form.startdate.focus();
+          return false;
+        }
+      } else {
+        alert("Invalid date format: " + form.startdate.value);
+        form.startdate.focus();
+        return false;
+      }
+    }
+
+    <i>// regular expression to match required time format</i>
+    re = /^(\d{1,2}):(\d{2})([ap]m)?$/;
+
+    if(form.starttime.value != '') {
+      if(regs = form.starttime.value.match(re)) {
+        if(regs[3]) {
+          <i>// 12-hour value between 1 and 12</i>
+          if(regs[1] &lt; 1 || regs[1] &gt; 12) {
+            alert("Invalid value for hours: " + regs[1]);
+            form.starttime.focus();
+            return false;
+          }
+        } else {
+          <i>// 24-hour value between 0 and 23</i>
+          if(regs[1] &gt; 23) {
+            alert("Invalid value for hours: " + regs[1]);
+            form.starttime.focus();
+            return false;
+          }
+        }
+        <i>// minute value between 0 and 59</i>
+        if(regs[2] &gt; 59) {
+          alert("Invalid value for minutes: " + regs[2]);
+          form.starttime.focus();
+          return false;
+        }
+      } else {
+        alert("Invalid time format: " + form.starttime.value);
+        form.starttime.focus();
+        return false;
+      }
+    }
+
+    alert("All input fields have been validated!");
+    return true;
+  }
+
+&lt;/script&gt;</code>
+<p style="margin-top: 0; text-align: right;"><small><a href="http://www.the-art-of-web.com/javascript/validate-date/#box1" onclick="document.getElementById(&#39;box1&#39;).style[&#39;height&#39;] = &#39;auto&#39;; this.parentNode.style[&#39;display&#39;] = &#39;none&#39;; return true;">expand code box</a></small></p>
+
+
+<p>If you're not already familiar with regular expressions, then this
+might be getting a bit complicated.  Basically, for each of the regular
+expression tests, an array is returned holding each component of the
+pattern that we've matched.</p>
+
+<p>For example, when the date is checked, the return value,
+<tt>regs</tt>, is an array with elements 1 through 3 containing the day,
+month and year components of the input string.  For the time check, the
+array returned includes the hour (pos 1), minutes (pos 2) and,
+optionally, the am/pm string (pos 3).</p>
+
+<p>Each of these values is then tested against an allowed range (days: 1
+- 31; months: 1 - 12; years: 1902 - 2015; and so on).</p>
+
+<p><b>This script only confirms that the input format is correct and 
+that each individual value falls within its allowed range.  It does not 
+check for leap years or invalid dates at the end of short 
+months.</b></p>
+
+
+<h2 id="section_2">3. Modular checkDate() function</h2>
+
+<p>As we've seen before, creating re-usable functions can significantly
+reduce the size of your JavaScript code.  These functions can even be
+included from an external javascript file so that the browser can cache
+them, and so the programmer isn't always copying and pasting.</p>
+
+<p>In this case, we've created a stand-alone functions which will
+validate a date field:</p>
+
+<code class="final"><i>  // Original JavaScript code by Chirp Internet: www.chirp.com.au
+  // Please acknowledge use of this code by including this header.</i>
+
+  function checkDate(field)
+  {
+    var allowBlank = true;
+    var minYear = 1902;
+    var maxYear = (new Date()).getFullYear();
+
+    var errorMsg = "";
+
+    <i>// regular expression to match required date format</i>
+    re = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/;
+
+    if(field.value != '') {
+      if(regs = field.value.match(re)) {
+        if(regs[1] &lt; 1 || regs[1] &gt; 31) {
+          errorMsg = "Invalid value for day: " + regs[1];
+        } else if(regs[2] &lt; 1 || regs[2] &gt; 12) {
+          errorMsg = "Invalid value for month: " + regs[2];
+        } else if(regs[3] &lt; minYear || regs[3] &gt; maxYear) {
+          errorMsg = "Invalid value for year: " + regs[3] + " - must be between " + minYear + " and " + maxYear;
+        }
+      } else {
+        errorMsg = "Invalid date format: " + field.value;
+      }
+    } else if(!allowBlank) {
+      errorMsg = "Empty date not allowed!";
+    }
+
+    if(errorMsg != "") {
+      alert(errorMsg);
+      field.focus();
+      return false;
+    }
+
+    return true;
+  }</code>
+
+<p>Dealing with alternative date formats is simple enough:</p>
+
+<ul>
+  <li>To convert to <tt>mm/dd/yyyy</tt> (US format) just swap <tt>regs[1]</tt> and <tt>regs[2]</tt> in the above code.</li>
+  <li>To convert to <tt>yyyy-mm-dd</tt> (European format) you need to change the regexp to <tt>/^(\d{4})-(\d{1,2})-(\d{1,2})$/</tt> and swap <tt>regs[1]</tt> and <tt>regs[3]</tt>.</li>
+</ul>
+
+<p>This is explained again below.</p>
+
+
+<h2 id="section_3">4. Modular checkTime() function</h2>
+
+<p>And a function that will validate a time input:</p>
+
+<code class="final"><i>  // Original JavaScript code by Chirp Internet: www.chirp.com.au
+  // Please acknowledge use of this code by including this header.</i>
+
+  function checkTime(field)
+  {
+    var errorMsg = "";
+
+    <i>// regular expression to match required time format</i>
+    re = /^(\d{1,2}):(\d{2})(:00)?([ap]m)?$/;
+
+    if(field.value != '') {
+      if(regs = field.value.match(re)) {
+        if(regs[4]) {
+          <i>// 12-hour time format with am/pm</i>
+          if(regs[1] &lt; 1 || regs[1] &gt; 12) {
+            errorMsg = "Invalid value for hours: " + regs[1];
+          }
+        } else {
+          <i>// 24-hour time format</i>
+          if(regs[1] &gt; 23) {
+            errorMsg = "Invalid value for hours: " + regs[1];
+          }
+        }
+        if(!errorMsg &amp;&amp; regs[2] &gt; 59) {
+          errorMsg = "Invalid value for minutes: " + regs[2];
+        }
+      } else {
+        errorMsg = "Invalid time format: " + field.value;
+      }
+    }
+
+    if(errorMsg != "") {
+      alert(errorMsg);
+      field.focus();
+      return false;
+    }
+
+    return true;
+  }</code>
+
+
+<h2 id="section_4">5. Using these functions for validation</h2>
+
+<p>It's now much easier to see what the main validation function is 
+doing:</p>
+
+<code>&lt;script type="text/javascript"&gt;
+
+  function checkForm(form)
+  {
+    if(!checkDate(form.startdate)) return false;
+    if(!checkTime(form.starttime)) return false;
+    return true;
+  }
+
+&lt;/script&gt;</code>
+
+<p>In each case the value passed to the function is the form field 
+rather than the field value.  The output will be almost identical to the 
+earlier examples.</p>
+
+<p>In this simple example we can even rewrite the <tt>checkForm</tt> 
+function above as:</p>
+
+<code>&lt;script type="text/javascript"&gt;
+
+  function checkForm(form)
+  {
+    return checkDate(form.startdate) &amp;&amp; checkTime(form.starttime);
+  }
+
+&lt;/script&gt;</code>
+
+<p>The associated HTML form would be as follows:</p>
+
+<code>&lt;form method="POST" action="<i>...</i>" onsubmit="return checkForm(this);"&gt;
+&lt;fieldset&gt;
+&lt;legend&gt;Event Details&lt;/legend&gt;
+&lt;label&gt;Start Date: &lt;input type="text" size="12" placeholder="dd/mm/yyyy" name="startdate"&gt; &lt;small&gt;(dd/mm/yyyy)&lt;/small&gt;&lt;/label&gt;
+&lt;label&gt;Start Time: &lt;input type="text" size="12" name="starttime"&gt; &lt;small&gt;(eg. 18:17 or 6:17pm)&lt;/small&gt;&lt;/label&gt;
+&lt;p&gt;&lt;input type="submit"&gt;&lt;/p&gt;
+&lt;/fieldset&gt;
+&lt;/form&gt;</code>
+
+
+<h2 id="section_5">6. Adding HTML5 input validation</h2>
+
+<p>There's now no excuse for having forms without <a href="http://www.the-art-of-web.com/html/html5-form-validation/">HTML5 form validation</a> 
+attributes.  Notably the <tt>pattern</tt> and <tt>required</tt> 
+attributes which allow the browser to perform it's own validation:</p>
+
+<code>&lt;form method="POST" action="..." onsubmit="return checkForm(this);"&gt;
+&lt;fieldset&gt;
+&lt;legend&gt;Event Details&lt;/legend&gt;
+&lt;label&gt;Start Date: &lt;input type="text" size="12" <span>required</span> <span>pattern="\d{1,2}/\d{1,2}/\d{4}"</span> placeholder="dd/mm/yyyy" name="startdate"&gt;&lt;/label&gt;
+&lt;label&gt;Start Time: &lt;input type="text" size="12" <span>pattern="\d{1,2}:\d{2}([ap]m)?"</span> name="starttime"&gt;&lt;/label&gt;
+&lt;p&gt;&lt;input type="submit"&gt;&lt;/p&gt;
+&lt;/fieldset&gt;
+&lt;/form&gt;</code>
+
+<p>In practice most modern browsers will now use HTML form validation to 
+preempt any JavaScript validation - with the notable exception of 
+Safari.</p>
+
+<form method="POST" action="./Form Validation  Date and Time   JavaScript   The Art of Web_files/Form Validation  Date and Time   JavaScript   The Art of Web.html" onsubmit="checkForm2(this); return false;">
+<fieldset>
+<legend>Event Details</legend>
+<label>Start Date</label><span><input type="text" size="12" required="" pattern="\d{1,2}/\d{1,2}/\d{4}" placeholder="dd/mm/yyyy" name="startdate"> <small>(dd/mm/yyyy)</small></span>
+<label>Start Time</label><span><input type="text" size="12" pattern="\d{1,2}:\d{2}([ap]m)?" name="starttime"> <small>(eg. 18:17 or 6:17pm)</small></span>
+<span><input type="submit"></span>
+</fieldset>
+</form>
+
+<p>Read more about <a href="http://www.the-art-of-web.com/html/html5-form-validation/">HTML5 form validation</a>.</p>
+
+
+<h2 id="section_6">7. Adjusting the code for different date formats</h2>
+
+<p>Visitors from some countries may find it confusing that we're using 
+the <tt>dd/mm/yyyy</tt> date format instead of the American or other 
+standards.  Modifying the code involves only minor changes:</p>
+
+<h4>US Date Format MM/DD/YYYY</h4>
+
+<p>In the <tt>checkDate</tt> function above you only need to replace 
+references to <tt>regs[1]</tt> with <tt>regs[2]</tt> and vice-versa to 
+reflect the change in order of the day and month values.</p>
+
+<h4>European Format YYYY-MM-DD</h4>
+
+<p>In the <tt>checkDate</tt> function above you only need to change the 
+regular expression (re) to <tt>/^(\d{4})-(\d{1,2})-(\d{1,2})/</tt> and 
+then replace references to <tt>regs[1]</tt> with <tt>regs[3]</tt> and 
+vice-versa as the year and day values have now changed position.</p>
+
+
+<h2 id="section_7">8. Checking month endings and leap years</h2>
+
+<p>In JavaScript to check for different month lengths, particularly for 
+February in leap years, you need quite a bit of extra code.  I'm not 
+going to show that here, but you can find a link to get started under 
+References below.</p>
+
+<p>Instead we're going to make use of <a href="http://www.the-art-of-web.com/javascript/ajax-validate/">Form Validation using Ajax</a> to do 
+some real-time checking using a server-side PHP script to get a 
+definitive answer.</p>
+
+<script type="text/javascript" src="./Form Validation  Date and Time   JavaScript   The Art of Web_files/ajaxrequest.js"></script>
+<script type="text/javascript">function callAjax(value,target)
+{if(encodeURIComponent){var req=new AjaxRequest();var params="value="+encodeURIComponent(value)+"&target="+target;req.setMethod("POST");req.loadXMLDoc('/scripts/valid_date.php',params);}}</script>
+
+<form id="form1" method="POST" action="./Form Validation  Date and Time   JavaScript   The Art of Web_files/Form Validation  Date and Time   JavaScript   The Art of Web.html" onsubmit="return false;">
+<fieldset>
+<legend>Ajax Date Validation</legend>
+<label for="field_dob">Date of Birth</label>
+<span><input id="field_dob" type="text" size="12" pattern="\d{1,2}/\d{1,2}/\d{4}" maxlength="10" placeholder="dd/mm/yyyy" name="dob" onchange="
+  if(this.value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/)) {
+    document.getElementById(&#39;form1&#39;).style[&#39;cursor&#39;] = &#39;progress&#39;;
+    callAjax(this.value, this.id);
+  }
+"> <small id="rsp_field_dob"><!-- --></small></span>
+<span><input type="button" onclick="
+  if(form.dob.value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/)) {
+    document.getElementById(&#39;form1&#39;).style[&#39;cursor&#39;] = &#39;progress&#39;;
+    callAjax(form.dob.value, &#39;field_dob&#39;);
+  } else {
+    alert(&#39;Date of Birth is not in the correct format (dd/mm/yyyy)&#39;);
+  }
+" value="Check Date Validity"></span>
+</fieldset>
+</form>
+
+<p>When you enter a date in the format dd/mm/yyyy the value is sent via 
+an Ajax call to the server where it is validated using the PHP <a href="http://www.php.net/checkdate" target="_blank">checkdate</a> 
+function.</p>
+
+<p>The return value is displayed next to the input field:</p>
+
+<p style="text-align: center;"><img src="./Form Validation  Date and Time   JavaScript   The Art of Web_files/valid_date1.png" width="350" height="84" alt="">
+<img src="./Form Validation  Date and Time   JavaScript   The Art of Web_files/valid_date2.png" width="350" height="84" alt=""></p>
+
+<p>Other actions could also be taken such as disabling form submission 
+until there is a valid date.</p>
+
+<p>The relevant portions of the HTML are as follows:</p>
+
+<code class="final">&lt;script type="text/javascript" src="<a href="http://www.chirp.com.au/ajaxrequest.js">ajaxrequest.js</a>"&gt;&lt;/script&gt;
+&lt;script type="text/javascript"&gt;
+
+  function <span>callAjax</span>(value, target)
+  {
+    if(encodeURIComponent) {
+      var req = new AjaxRequest();
+      var params = "value=" + encodeURIComponent(value) + "&amp;target=" + target;
+      req.setMethod("POST");
+      req.loadXMLDoc("valid_date.php", params);
+    }
+  }
+
+&lt;/script&gt;
+
+...
+
+&lt;form ...&gt;
+
+...
+
+&lt;p&gt;Date of Birth: &lt;input id="field_dob" name="dob" <i>onchange=</i>"
+  if(this.value.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/)) {
+    <span>callAjax(this.value, this.id);</span>
+  }
+"&gt; &lt;small id="<i>rsp_field_dob</i>"&gt;&lt;!-- --&gt;&lt;/small&gt;&lt;/p&gt;
+
+...
+
+&lt;/form&gt;</code>
+
+<p>The JavaScript <tt>onchange</tt> event handler simply passes the date 
+input value to a server-side script <tt>valid_date.php</tt> where it 
+will be tested.  It then waits for an XML response containing 
+instructions as to what message to display.</p>
+
+<p>The PHP script <tt>valid_date.php</tt> simply breaks up the date 
+input string and passes the values to the built-in <tt>checkdate()</tt> 
+function - which presumably knows all about leap years and other strange 
+features of the Gregorian calendar:</p>
+
+<code class="final">&lt;?PHP
+  include "class.xmlresponse.php";
+
+  if($_POST) {
+    $target = trim($_POST['target']);
+    $value = trim($_POST['value']);
+  } else {
+    die("Error: missing POST values");
+  }
+
+  $date_is_valid = false;
+  if(preg_match("@(\d{1,2})/(\d{1,2})/(\d{4})@", $value, $regs)) {
+    list($tmp, $day, $month, $year) = $regs;
+    $date_is_valid = checkdate($month, $day, $year);
+  }
+
+  $retval = $date_is_valid ? "date $value is valid" : "date $value is not valid";
+
+  $xml = new xmlResponse();
+  $xml-&gt;start();
+
+  $xml-&gt;command('setcontent',
+    array('target' =&gt; "rsp_$target", 'content' =&gt; htmlentities($retval))
+  );
+  if($date_is_valid) {
+    $xml-&gt;command('setstyle',
+      array('target' =&gt; "rsp_$target", 'property' =&gt; 'color', 'value' =&gt; 'green')
+    );
+  } else {
+    $xml-&gt;command('setstyle',
+      array('target' =&gt; "rsp_$target", 'property' =&gt; 'color', 'value' =&gt; 'red')
+    );
+    $xml-&gt;command('focus', array('target' =&gt; $target));
+  }
+  $xml-&gt;command('setstyle',
+    array('target' =&gt; "form1", 'property' =&gt; 'cursor', 'value' =&gt; 'default')
+  );
+
+  $xml-&gt;end();
+?&gt;
+</code>
+
+<p>You can copy the code for <tt>valid_date.php</tt> from the box below:</p>
+
+<textarea style="width: 100%" cols="80" rows="5" onclick="this.focus(); this.select();">&lt;?PHP
+  include "class.xmlresponse.php";
+
+  if($_POST) {
+    $target = trim($_POST['target']);
+    $value = trim($_POST['value']);
+  } else {
+    die("Error: missing POST values");
+  }
+
+  $date_is_valid = false;
+  if(preg_match("@(\d{1,2})/(\d{1,2})/(\d{4})@", $value, $regs)) {
+    list($tmp, $day, $month, $year) = $regs;
+    $date_is_valid = checkdate($month, $day, $year);
+  }
+
+  $retval = $date_is_valid ? "date $value is valid" : "date $value is not valid";
+
+  $xml = new xmlResponse();
+  $xml-&gt;start();
+
+  $xml-&gt;command('setcontent',
+    array('target' =&gt; "rsp_$target", 'content' =&gt; htmlentities($retval))
+  );
+  if($date_is_valid) {
+    $xml-&gt;command('setstyle',
+      array('target' =&gt; "rsp_$target", 'property' =&gt; 'color', 'value' =&gt; 'green')
+    );
+  } else {
+    $xml-&gt;command('setstyle',
+      array('target' =&gt; "rsp_$target", 'property' =&gt; 'color', 'value' =&gt; 'red')
+    );
+    $xml-&gt;command('focus', array('target' =&gt; $target));
+  }
+  $xml-&gt;command('setstyle',
+    array('target' =&gt; "form1", 'property' =&gt; 'cursor', 'value' =&gt; 'default')
+  );
+
+  $xml-&gt;end();
+?&gt;
+</textarea>
+
+<p>The script <tt>class.xmlresponse.php</tt> was introduced in <a href="http://www.the-art-of-web.com/php/ajax/">Generating an XML Response for Ajax Applications</a> 
+and can also be copied below:</p>
+
+<textarea style="width: 100%" cols="80" rows="5" onclick="this.focus(); this.select();">&lt;?PHP
+// Original PHP code by Chirp Internet: www.chirp.com.au
+// Please acknowledge use of this code by including this header.
+
+class xmlResponse
+{
+
+  function start()
+  {
+    header('Content-Type: text/xml');
+    echo '&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;' . "\n";
+    echo "&lt;response&gt;\n";
+  }
+
+  function command($method, $params=array(), $encoded=array())
+  {
+    echo "  &lt;command method=\"$method\"&gt;\n";
+    if($params) {
+      foreach($params as $key =&gt; $val) {
+        echo "    &lt;$key&gt;" . htmlspecialchars($val) . "&lt;/$key&gt;\n";
+      }
+    }
+    if($encoded) {
+      foreach($encoded as $key =&gt; $val) {
+        echo "    &lt;$key&gt;&lt;![CDATA[$val]]&gt;&lt;/$key&gt;\n";
+      }
+    }
+    echo "  &lt;/command&gt;\n";
+  }
+
+  function end()
+  {
+    echo "&lt;/response&gt;\n";
+    exit;
+  }
+
+}
+?&gt;
+</textarea>
+
+<p>Both files need to be saved in the same folder as your HTML page for 
+the date validation to work - so you have four files in total - the 
+original HTML file with the form, <tt>ajaxrequest.js</tt>, 
+<tt>class.xmlresponse.php</tt> and <tt>valid_date.php</tt>.</p>
+
+<p>Similar to this setup from another example:</p>
+
+<p style="text-align: center;"><img src="./Form Validation  Date and Time   JavaScript   The Art of Web_files/ajax-validate.gif" width="503" height="261" alt="chart showing relationship between different scripts"></p>
+
+<p>With Ajax you can make use of more powerful server-side functions and 
+don't have to include large JavaScript libraries for validating dates 
+and other values.  Just be aware that it means more requests to the 
+server which can be slower than downloading and running JavaScript code.</p>
+
+<p>The AjaxRequest class is a simple one we've created and use on a 
+number of projects.  You can find the details in <a href="http://www.the-art-of-web.com/javascript/ajax/">Web Services using XMLHttpRequest (Ajax)</a> 
+and related articles.</p>
+
+
+<h2 id="section_8">9. References</h2>
+
+<ul>
+  <li><a href="http://www.webreference.com/js/column5/methods.html" target="_blank">Regular Expression (and String) Methods</a></li>
+  <li><a href="http://www.codeproject.com/KB/scripting/Leap_Year___JavaScript.aspx" target="_blank">Is it Leap Year? ....Using Javascript</a></li>
+</ul>
+
+<h2 id="related">10. Related Articles - Form Validation</h2>
+
+<ul>
+  <li> <a href="http://www.the-art-of-web.com/html/html5-form-validation/">HTML5 Form Validation Examples</a> <small style="font-size: 9px; color: #ccc;">[HTML]</small></li>
+  <li> <a href="http://www.the-art-of-web.com/html/html5-checkbox-required/">Validating a checkbox with HTML5</a> <small style="font-size: 9px; color: #ccc;">[HTML]</small></li>
+  <li> <a href="http://www.the-art-of-web.com/javascript/validate-password/">Password Validation using regular expressions and HTML5</a> <small style="font-size: 9px; color: #ccc;">[JAVASCRIPT]</small></li>
+  <li><b>Date and Time</b> <small style="font-size: 9px; color: #ccc;">[JAVASCRIPT]</small></li>
+  <li> <a href="http://www.the-art-of-web.com/javascript/doublesubmit/">Preventing Double Form Submission</a> <small style="font-size: 9px; color: #ccc;">[JAVASCRIPT]</small></li>
+  <li> <a href="http://www.the-art-of-web.com/javascript/validate/">Form Validation</a> <small style="font-size: 9px; color: #ccc;">[JAVASCRIPT]</small></li>
+  <li> <a href="http://www.the-art-of-web.com/javascript/validate/3/">Credit Card numbers</a> <small style="font-size: 9px; color: #ccc;">[JAVASCRIPT]</small></li>
+  <li> <a href="http://www.the-art-of-web.com/javascript/feedback-modal-window/">A simple modal feedback form with no plugins</a> <small style="font-size: 9px; color: #ccc;">[JAVASCRIPT]</small></li>
+  <li> <a href="http://www.the-art-of-web.com/php/captcha/">Protecting forms using a CAPTCHA</a> <small style="font-size: 9px; color: #ccc;">[PHP]</small></li>
+  <li> <a href="http://www.the-art-of-web.com/php/form-handler/">Basic Form Handling in PHP</a> <small style="font-size: 9px; color: #ccc;">[PHP]</small></li>
+</ul>
+
+
+<p class="noprint"><a href="http://www.the-art-of-web.com/javascript/">&lt; JavaScript</a></p>
+
+<br style="clear: both;">
+
+<ul id="share" ontouchstart="this.className = &#39;hover&#39;;">
+  <li class="fbook"><a title="Share on Facebook" target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fwww.the-art-of-web.com%2Fjavascript%2Fvalidate-date%2F"><!-- --></a></li>
+  <li class="tweet"><a title="Tweet This" target="_blank" href="https://twitter.com/intent/tweet?text=JavaScript%3A+Form+Validation%3A+Date+and+Time&url=http%3A%2F%2Fwww.the-art-of-web.com%2Fjavascript%2Fvalidate-date%2F&via=theartofweb"></a></li>
+  <li class="gplus"><a title="Plus on Google+" target="_blank" href="https://plus.google.com/share?url=http%3A%2F%2Fwww.the-art-of-web.com%2Fjavascript%2Fvalidate-date%2F"></a></li>
+</ul>
+<!-- start feedback form -->
+<div id="feedback">
+<p>Send a message to The Art of Web:</p>
+
+<form id="feedback_form" method="POST" action="http://www.the-art-of-web.com/feedback.html" accept-charset="UTF-8">
+<p><label>Your Name<strong>*</strong><br>
+<input id="field_name" required="" type="text" size="48" name="name" value=""></label></p>
+<p><label>Email Address<strong>*</strong><br>
+<input id="field_email" type="email" required="" size="48" name="email" value=""></label><br>
+<small>used only for us to reply, and to display your <a tabindex="-1" href="https://en.gravatar.com/" target="_blank">gravatar</a>.</small></p>
+<p><label>Website<br>
+<input type="url" pattern="^https?://.+" size="48" name="website" value="" placeholder="http://"></label></p>
+<p><label>Message<strong>*</strong><br>
+<textarea id="field_message" name="message" required="" cols="48" rows="8"></textarea></label></p>
+<p><img id="captcha" src="http://www.the-art-of-web.com/captcha.png" width="160" height="45" border="1" alt="CAPTCHA">
+<small><a href="http://www.the-art-of-web.com/javascript/validate-date/#" onclick="
+  document.getElementById(&#39;captcha&#39;).src = &#39;/captcha.png?&#39; + Math.random();
+  document.getElementById(&#39;captcha_code&#39;).value = &#39;&#39;;
+  return false;
+">refresh</a></small></p>
+<p><label><a tabindex="-1" href="http://www.the-art-of-web.com/php/captcha/">CAPTCHA</a><strong>*</strong>: <input id="captcha_code" type="text" required="" pattern="\d{5}" name="captcha" size="6" maxlength="5"></label>
+ <small>&lt;- copy the digits from the image into this box</small></p>
+<p><input type="submit" name="submit" value="Send Feedback"></p>
+</form>
+
+<p class="instruction">press &lt;Esc&gt; or click outside this box to close</p>
+
+</div> <!-- #feedback -->
+<h2 id="user_comments">11. User Comments</h2>
+
+<div id="comments">
+<div class="comment" hash="88f1671615309acf7e42fe565d987374" itemscope="" itemtype="http://schema.org/Comment" style="background-image: url(http://www.gravatar.com/avatar/88f1671615309acf7e42fe565d987374.jpg?s=48&amp;d=mm);">
+<p class="comment_author"><big itemprop="author">Max</big> <span class="comment_time" itemprop="dateCreated">20 October, 2012</span></p>
+<div itemprop="text"><p>I found a small bug in your checkTime() function.<br>
+It doesn't allow a space after minutes and before the am/pm<br>
+example: "03:30 am" will get an invalid time.<br>
+while "03:30am" will be ok.</p>
+
+<p>I modified the reg to the following:<br>
+re = /^(\d{1,2}): (\d{2})(:00)?$?([ap]m)?$/;</p>
+
+<p>Thanks,</p></div>
+</div>
+<div class="comment" hash="0ee4a67c2d964ff001d94379a2257a14" itemscope="" itemtype="http://schema.org/Comment" style="background-image: url(http://www.gravatar.com/avatar/0ee4a67c2d964ff001d94379a2257a14.jpg?s=48&amp;d=mm);">
+<p class="comment_author"><big itemprop="author">pradeep</big> <span class="comment_time" itemprop="dateCreated">17 September, 2011</span></p>
+<div itemprop="text"><p>Thanks for the code... It helped me a lot.... I had many date fields in my form.... This helped me a lot.... I just modified the code to my need... that was a small thing.... Thanks for the code again.....</p></div>
+</div>
+<div class="comment" hash="de8cf32355147857fa355c98d703f15c" itemscope="" itemtype="http://schema.org/Comment" style="background-image: url(http://www.gravatar.com/avatar/de8cf32355147857fa355c98d703f15c.jpg?s=48&amp;d=mm);">
+<p class="comment_author"><big itemprop="author">Ted Schumacher</big> <span class="comment_time" itemprop="dateCreated">28 June, 2007</span></p>
+<div itemprop="text"><p>There is no explanation of the string ([ap]m).  I have done google searches but cannot find an explanation.  Can you help?</p></div>
+<div class="response">
+<p>It's a regular expression "([ap]m)?" that captures an (optional) 'am' or 'pm' at the end of the input:</p>
+
+<ul><li>[ap] matches a single 'a' or 'p'</li><li>[ap]m then matches 'am' or 'pm'</li><li>([ap]m) also 'captures' the value</li><li>([ap]m)? makes the match and capture 'optional'</li></ul>
+
+<p></p>
+</div>
+</div>
+<div class="comment" hash="87bbd56df199e908795f1caa7d6b4d50" itemscope="" itemtype="http://schema.org/Comment" style="background-image: url(http://www.gravatar.com/avatar/87bbd56df199e908795f1caa7d6b4d50.jpg?s=48&amp;d=mm);">
+<p class="comment_author"><big itemprop="author">Sumaira Butt</big> <span class="comment_time" itemprop="dateCreated">12 February, 2007</span></p>
+<div itemprop="text"><p>your date script is allowing invalid dates like 29/2/2007 29 feb doesnt exist. kindly do validate  the end dates of months. and leap years.</p></div>
+<div class="response">
+<p>It was made clear in the article that that level of checking is not included.  I suggest using a server-side script such as the <a href="http://www.php.net/checkdate" target="_blank">PHP checkdate function</a> which can be called <a href="http://www.the-art-of-web.com/javascript/ajax-race-condition/">using Ajax</a> or other means.</p>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">var loadAllCommentsAjax=function(value,target)
+{if(encodeURIComponent){var req=new AjaxRequest();var params="page="+encodeURIComponent("/javascript/validate-date/");req.setMethod("POST");req.loadXMLDoc("/scripts/loadallcomments.php",params);}}
+var comments_onload=function(){var arr=document.getElementById("comments").getElementsByTagName("div");for(var i=0;i<arr.length;i++){if((arr[i].className=="comment")&&(hash=arr[i].getAttribute("hash"))){arr[i].style.backgroundImage="url(http://www.gravatar.com/avatar/"+hash+".jpg?s=48&d=mm)";}}};if(document.addEventListener){document.addEventListener("DOMContentLoaded",comments_onload,false);}else{window.attachEvent("onload",comments_onload);}</script>
+
+</div>
+
+<div id="copyright"><a href="http://www.the-art-of-web.com/copyright.html">© Copyright 2015</a> <a href="http://www.chirp.com.au/" target="_blank">Chirp Internet</a> 
+- Page Last Modified: 13 February 2015</div>
+
+<a class="totop" href="http://www.the-art-of-web.com/javascript/validate-date/#content" onclick="document.getElementById(&#39;content&#39;).scrollIntoView(true); return false;">top</a>
+
+<script type="text/javascript" src="./Form Validation  Date and Time   JavaScript   The Art of Web_files/chirp_localcache.js.pagespeed.jm.1pFffUjOSc.js"></script>
+<script type="text/javascript">var localcache_init=function(e){if(typeof LocalCache=="object"){LocalCache.retrieve("feedback");LocalCache.gc();}}
+if(document.addEventListener){document.addEventListener("DOMContentLoaded",localcache_init,false);}else{window.attachEvent("onload",localcache_init);}</script>
+<!-- Google Analytics -->
+<script type="text/javascript">(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-3458555-1');ga('send','pageview');</script>
+<!-- End Google Analytics -->
+<script type="text/javascript" src="./Form Validation  Date and Time   JavaScript   The Art of Web_files/combined.js.pagespeed.jm.VWR05JWci5.js"></script>
+<script type="text/javascript">var mySuggest=new Suggestor("sitesearch","suggest","/scripts/autosuggest.php",{regex:/^.{3,12}$/});</script>
+
+<!-- web development by chirp internet -->
+
+
+</body></html>

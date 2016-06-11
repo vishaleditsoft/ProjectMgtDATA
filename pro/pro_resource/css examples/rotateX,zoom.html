@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+    width: 300px;
+    height: 100px;
+    background-color: yellow;
+    border: 1px solid black;
+}
+div:hover{ 
+-webkit-transform: rotateX(150deg); /* Safari */
+    transform: rotateX(180deg);
+	 /* Standard syntax */
+	
+	
+}
+
+
+div#myDiv:hover{
+	transform:scale(1.1,1.1); /* Standard syntax */
+}
+
+div#my:hover{
+	  transform: rotateY(180deg); /* Standard syntax */
+}
+</style>
+</head>
+<body>
+
+<div>
+This a normal div element.
+</div>
+
+<div id="myDiv">
+The rotateX() method rotates an element around its X-axis at a given degree. This div element is rotated 150 degrees.
+</div>
+
+<div id="my">
+The rotateX() method rotates an element around its X-axis at a given degree. This div element is rotated 150 degrees.
+</div>
+
+
+<p><b>Note:</b> Internet Explorer 9 (and earlier versions) does not support the rotateX() method.</p>
+
+</body>
+
+<!-- Mirrored from www.w3schools.com/css/tryit.asp?filename=trycss3_transform_rotateX by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 30 Mar 2015 22:20:19 GMT -->
+</html>

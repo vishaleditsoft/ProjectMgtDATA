@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style>
+#wrapper{
+background-color:#FFFFFF;
+opacity:0.7;
+color:#0066FF;
+right:auto;
+}
+body{
+background:url(../images/cool.jpg) no-repeat fixed 100%;
+
+
+margin:0;
+ }
+#navMenu {
+	margin:2px;
+	padding:2px;
+}
+#navMenu ul{
+	margin:0;
+	padding:0;
+	line-height:30px;
+	}
+#navMenu li{
+	margin:0;
+	float:left;
+	padding:0;
+	list-style:none;
+	position:relative;	
+	background:#999999;
+	
+}
+#navMenu ul li a{
+		text-align:center;
+		font-family:"comic Sans MS",cursive;
+		text-decoration:none;
+		height:35px;
+		width:150px;
+		display:block;
+		color:#ffffff;
+		border:1px solid #fffff;
+		text-shadow:1px 1px 1px ;	
+}
+#navMenu ul ul {
+	position:absolute;
+	visibility:hidden;
+	top:32px;
+	
+}
+#navMenu ul li:hover ul {
+	visibility:visible;
+	}
+	 /***************************/
+	 
+ #navMenu li:hover{
+	 background-color:#6699FF;<!--sky blue-->
+	}
+#navMenu ul li:hover ul li a:hover
+
+{
+background-color:#0099FF;<!--pink-->
+color:#FF0000;}
+#navMenu a:hover{
+color:#00FF00;<!--green color-->
+}
+
+/*table csss*/
+.titlesuggestion{
+font-family:"comic Sans MS";
+font-size:2em;
+margin:0;
+
+}
+.style7 {
+font-size: 0.6em;
+margin:10px;
+padding-bottom:10px;
+
+}
+</style>
+</head>
+<body>
+<table border="0" width="100%">
+<tr>
+	<td  width="" class="titlesuggestion" ><div style="margin-left:1.3em;"><img src="../images/DIT2.jpg" alt="dit_img" width="254" height="81" /></div>
+	</td>
+	<td colspan="2" align="right" background="../../../../../../../xampp/htdocs/pro/p/upload.php">
+		
+
+				<div id="wrapper" align="right">
+							<div id="navMenu" align="right">
+								<ul>
+									<li>
+										<a href="#">Home</a>									</li>
+								</ul>
+								<ul>
+									<li>
+										<a href="#">about</a>									</li>
+								</ul>
+								<ul>
+									<li>
+										<a href="#">settings</a>
+											<ul>
+												<li><a href="upload.php">change pic</a></li>
+												<li><a href="#">change password</a></li>
+												<li><a href="#">private details</a></li>
+											</ul>
+									</li>
+								</ul>
+						
+						
+								<ul>
+									<li>
+										<a href="#">logout</a>									</li>
+								</ul>
+							</div>
+	  </div>
+				<p align="center" style="font-family:Arial;font-style:italic;text-decoration:none;">	<a  style="text-decoration:none;  "href="www.dituniversity.edu.in" target="_blank" title="Dit University">DIT University</a></p>	</td>
+</tr>
+<tr>
+	<td width="312" height="97" align="center">
+	
+	
+	  <p align="center"><!--<button><img src="../images/defaultprofile.png" /></button>--></p>	
+		<center><span style="font-family:'comic Sans MS';font-size:1em;">welcome &nbsp;</span><span class="username">user</span></center>
+ </td>
+	<td colspan="2" style="font-family:'comic Sans MS';font-size=1em;">
+	<textarea rows="6" cols="9" style="width:92%; padding:5px; margin:10px 0px;" id="suggesionbox" placeholder="share your views here(max 500 characters)" maxlength="500"></textarea>
+	
+	<select name="select_post_links" >
+		<option >Function</option>
+		<option >Project</option>
+		<option >Problems</option>
+		<option >Misc</option>
+		<option >Research</option>
+		<option >Achivement</option>
+		<option >Awareness</option>
+	</select>
+
+    	<input style="margin:10px; display:inline-block; padding:.4em;" name="post" type="submit" id="post" value="post"/>
+		
+			</td>
+</tr>
+
+
+</table>
+
+</body>
+</html>

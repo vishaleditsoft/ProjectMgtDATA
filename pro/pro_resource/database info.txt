@@ -1,0 +1,4 @@
+database name: pro
+table :
+p->college_id,name,pass 
+comment->college_id,comment

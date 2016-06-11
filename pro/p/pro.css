@@ -1,0 +1,85 @@
+/* CSS Document */
+
+
+#suggestion_for_ditu{
+font-size:24px; font-family:Jokerman;
+
+margin:0px auto;//it made it in center
+    position: relative;
+    -webkit-animation-name: example; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+    -webkit-animation-iteration-count: 3; /* Chrome, Safari, Opera */
+    -webkit-animation-direction: alternate; /* Chrome, Safari, Opera */
+    animation-name: example;
+    animation-duration: infinite;
+    animation-iteration-count: infinte;
+    animation-direction: alternate; 
+
+}
+
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes example {
+    0%   {color:red;  top:0px;}
+    25%  {color:yellow;  top:200px;}
+    50%  {color:blue;  top:100px;}
+    75%  {color:green; top:200px;}
+    100% {color:red;  top:0px;}
+
+}
+
+/* Standard syntax */
+@keyframes example {
+    0%   {color:red;  top:0px;}
+    25%  {color:yellow;  top:200px;}
+    50%  {color:blue;  top:100px;}
+    75%  {color:green; top:200px;}
+    100% {color:red;  top:0px;}
+
+}
+body{
+
+background-color:	#F0F8FF;
+}
+
+#mainform{
+     line-height:20px;
+    background-color:#EEEEEE;
+    height:250px;
+    width:50%;
+    padding:5px;	
+	
+	margin:10px auto;
+}
+#post_button{
+width:8%; border-radius:6px; height:40px; background-color:#0099FF; box-shadow: 10px 10px 5px grey;
+font-size:20px;
+}
+#post_button:hover{
+transform:scale(1.2,1.2);
+
+}
+
+#posted_data{
+   background-color:#FFFFFF;
+  
+    width:50%;
+  border-style: ridge;
+    padding:5px;
+	border-radius:5%;
+	margin:0 auto;
+}
+.home_logout{
+background-color:#00CCFF;
+padding:5px;
+margin-right:40px;
+}
+#free_space{
+/*background-image:url(images/ad.jpg);
+*/     line-height:10px;
+   
+   height:37.5em;
+    width:39%;
+    float:left;
+    padding:5px;	
+}

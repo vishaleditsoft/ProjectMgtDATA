@@ -1,0 +1,46 @@
+/* CSS Document */
+
+#footer {
+     color:white;
+   padding:9px;
+   text-align:center;
+  width:100%;	 	
+   background-color:#666666; 
+   position:fixed;
+   bottom:0px;
+}
+#header{
+
+}
+
+
+
+#mainform{
+     line-height:20px;
+    background-color:#00FF99;
+    height:160px;
+    width:39%;
+    float:left;
+    padding:5px;	
+	
+}
+#posted_data{
+   background-color:#CCFFFF;
+    width:60%;
+    float:right;
+    padding:5px;
+}
+.home_logout{
+background-color:#00CCFF;
+padding:5px;
+margin-right:40px;
+}
+#free_space{
+background-image:url(images/ad.jpg);
+     line-height:10px;
+   
+   height:37.5em;
+    width:39%;
+    float:left;
+    padding:5px;	
+}

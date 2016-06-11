@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-1.11.3.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#btn1").click(function(){
+        alert("Text: " + $("#test").text());
+    });
+    $("#btn2").click(function(){
+        alert("HTML: " + $("#test").html());
+    });
+
+	$("#btn3").click(function(){
+    	alert("Value: " + $("#test").val());
+	});
+});
+</script>
+</head>
+<body>
+
+<p id="test" value="Mickey mouse">This is some <b>bold</b> text in a paragraph.</p>
+
+<button id="btn1">Show Text</button>
+<button id="btn2">Show HTML</button>
+<button id="btn3">Show val method</button>
+</body>
+
+<!-- Mirrored from www.w3schools.com/jquery/tryit.asp?filename=tryjquery_dom_html_get by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 30 Mar 2015 21:57:43 GMT -->
+</html>

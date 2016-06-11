@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+div {
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s;
+}
+
+div:hover {
+    width: 300px;
+}
+p#para {
+    width: 100px;
+    height: 100px;
+    background: red;
+    -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+    transition: width 2s, height 4s;
+}
+
+p#para:hover {
+    	width: 300px;
+	 height:200px;
+}
+</style>
+</head>
+<body>
+
+<div></div>
+
+<p id="para"></p>
+<p>Hover over the div element above, to see the transition effect.</p>
+
+</body>
+
+<!-- Mirrored from www.w3schools.com/css/tryit.asp?filename=trycss3_transition1 by HTTrack Website Copier/3.x [XR&CO'2013], Mon, 30 Mar 2015 21:40:48 GMT -->
+</html>
