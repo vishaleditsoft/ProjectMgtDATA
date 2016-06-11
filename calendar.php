@@ -1,3 +1,8 @@
+
+ <?php include('connection.php');
+      session_start();
+      ?>
+
 <!DOCTYPE html>
 <html>
     
@@ -239,8 +244,7 @@
                                 <a href="calendar.php" class="waves-effect"><i class="md md-event"></i><span> Calendar </span></a>
                             </li>
 							 <li>
-							 <?php include('connection.php');
-							  session_start();
+							 <?php 
 							 $memail=$_SESSION['manger_email'];
 							$qurr="select `status` from `messages` where `status`='1' and `to`='$memail'";
 							 $res=mysqli_query($conn,$qurr);
