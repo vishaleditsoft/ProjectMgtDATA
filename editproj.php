@@ -12,9 +12,14 @@ $proj_miles=$_POST['mile_stone'];
 /*
 $addpro_query="insert into project(`project_name`,`project_manger_id`,`project_member_id`,`assign_to`,`project_desc`,`project_milestone`,`project_document`,`project_end_date`) values('$proj_name','$manger_id','$proj_mem_id','$proj_assign','$proj_desc','$proj_miles','$destt','$proj_dead')";
 */
-$quer="update project set project_name='$proj_name', assign_to='$proj_assign',project_manger_id='$proj_mem_id',project_desc='$proj_desc', project_end_date='$proj_dead',
+$quer="update project set project_name='$proj_name', assign_to='$proj_assign',project_manger_id='$manger_id',project_desc='$proj_desc', project_end_date='$proj_dead',
 project_milestone='$proj_miles' where project_id='$pid'";
 $res=mysqli_query($conn,$quer);
+<<<<<<< HEAD
 header("Location:projects.php");
+=======
+header('location:projects.php');
+
+>>>>>>> a72152fcdda8a09376b620e29a878ca3773b4bb4
 
  ?>

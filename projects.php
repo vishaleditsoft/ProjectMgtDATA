@@ -52,13 +52,6 @@ header("Location:index.php");
 		 </script>
 
 
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-65046120-1', 'auto');
-  ga('send', 'pageview');
  <title>Project Management System</title>
 		<script type="text/javascript">
 		window.setInterval('refreshdiv()',5000);
@@ -332,6 +325,11 @@ header("Location:index.php");
 																</td>
 																<td><a style="width:100%;" href="javascript:;" class="md-trigger btn btn-primary waves-effect waves-light" data-modal="ed<?php echo $result['project_id'];?>">	
 																Edit</a></td>
+																<td><form action="delproj.php" method="POST"><input type="hidden" name="deldat" value="<?php echo $result['project_id'];?>"><input type="Submit" value="Delete" id="del<?php $result['project_id'];?>"></form>
+																
+																
+																</td>
+																
 																</tr>
 															 <div class="md-modal md-effect-8" id="mo<?php echo $result['project_id'];?>">
                                         <div class="md-content">
@@ -642,7 +640,7 @@ header("Location:index.php");
         <script src="assets/plugins/modal-effect/js/modalEffects.js"></script>
 
         <script type="text/javascript" src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-	
+		
 
         <script>
             jQuery(document).ready(function() {

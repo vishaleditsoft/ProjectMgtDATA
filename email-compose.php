@@ -224,6 +224,7 @@
                             </li>
 							 <li>
 							 <?php include('connection.php');
+							 session_start();
 							 $memail=$_SESSION['manger_email'];
 							$qurr="select `status` from `messages` where `status`='1' and `to`='$memail'";
 							 $res=mysqli_query($conn,$qurr);
