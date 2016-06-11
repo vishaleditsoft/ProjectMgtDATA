@@ -73,12 +73,16 @@
     															<tr>                                         <td style="width:10%;"><a style="width:100%;padding: 3px 0px;" href="javascript:;" class=" btn btn-primary waves-effect waves-light" >  
                                                                 <?php echo $sr;$sr+=1; ?></a></td>
 																
-																<td style="width:70%;"> <a style="width:100%;" href="javascript:;" class="md-trigger btn btn-primary waves-effect waves-light" data-modal="mo<?php echo $result['project_id'];?>">	
+																<td style="width:70%;"> <a style="width:100%;" href="javascript:;" class="md-trigger btn btn-success waves-effect waves-light" data-modal="mo<?php echo $result['project_id'];?>">	
 																<?php echo $result['project_name'];?></a> 
 																</td>
-																<td style="width:10%;"><a style="width:100%;" href="javascript:;" class="md-trigger btn btn-primary waves-effect waves-light" data-modal="ed<?php echo $result['project_id'];?>">	
+																<td style="width:10%;"><a style="width:100%;" href="javascript:;" class="md-trigger btn btn-warning waves-effect waves-light" data-modal="ed<?php echo $result['project_id'];?>">	
 																Edit</a></td>
-																<td style="width:10%;"><form action="delproj.php" method="POST"><input type="hidden" name="deldat" value="<?php echo $result['project_id'];?>"><input type="Submit" value="Delete" class="btn btn-primary" style="    padding: 3px 19px;" id="del<?php $result['project_id'];?>"></form>
+																<td style="width:10%;">
+                                                                <form action="delproj.php" method="POST">
+                                                                <input type="hidden" name="deldat" value="<?php echo $result['project_id'];?>">
+                                                                <input type="Submit" value="Delete" class="btn btn-danger " style="    padding: 3px 19px;" id="del<?php $result['project_id'];?>">
+                                                                </form>
 																
 																
 																</td>
@@ -101,7 +105,7 @@
                                                 <button class="md-close btn-sm btn-primary waves-effect waves-light">Close me!</button>
                                             </div>                                        </div>
                                     </div>
-													 <div class="md-modal md-effect-8" id="ed<?php echo $result['project_id'];?>">
+										 <div class="md-modal md-effect-8" id="ed<?php echo $result['project_id'];?>">
                                         <div class="md-content">
                                             <h3>Project Details</h3>
                                             <div>
