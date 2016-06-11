@@ -110,11 +110,11 @@
                                             <div class="media-body">
                                                 <span class="media-meta pull-right"><?php echo $res['date'];?></span>
                                                
-                                                To:<small class="text-muted"><?php echo $res['to'];?></small>
+                                             <b>   To:</b><small class="text-muted"><?php echo $res['to'];?></small>
                                             </div>
                                         </div> <!-- media -->
-										Subject:<b><?php echo $res['subject']; ?></b>
-                                       <p> Message:
+										<b>Subject:</b><?php echo $res['subject']; ?>
+                                       <p> <b>Message:</b>
 										<?php echo $res['content'];
                                         echo "<hr>";
 										}
