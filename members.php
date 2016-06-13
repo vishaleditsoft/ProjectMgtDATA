@@ -65,7 +65,7 @@
                         <!-- add member link -->
                         <div class="row"  style="margin-bottom:20px;">
                             <div class="col-sm-6">
-                               <button class="btn btn-danger" data-toggle="modal" data-target="#add">Add new member</button>
+                               <button class="btn btn-success" data-toggle="modal" data-target="#add">Add new member</button>
                              
                             </div>
 
@@ -99,15 +99,15 @@
                                         <td><?php echo $r['mem_mobile'];?></td> 
                                         <td>
                                          <form action='mem_up_del.php' method='POST'>
-                                             <input type='hidden' name='up_dat' value="<?php echo $r['mem_id']; ?>" />
-                                             <input type='Submit' class="btn btn-primary" value='Edit' id='up<?php echo $r['mem_id'];?>' class='btn btn-primary waves-effect waves-light' >
+                                             <input type='hidden' name='up_dat_id' value="<?php echo $r['mem_id']; ?>" />
+                                             <input type='Submit' class="btn btn-warning" value='Edit' id='up<?php echo $r['mem_id'];?>' class='btn btn-primary waves-effect waves-light' >
                                          </form>
                                         </td>
 
                                         <td>
                                          <form action='mem_up_del.php' method='POST'>
                                              <input type='hidden' name='deldat' value="<?php echo $r['mem_id']; ?>" />
-                                             <input type='Submit' class="btn btn-primary" value='Delete' id='del<?php echo $r['mem_id'];?>' class='btn btn-primary waves-effect waves-light' >
+                                             <input type='Submit' class="btn btn-danger" name="del" value='Delete' id='del<?php echo $r['mem_id'];?>' class='btn btn-primary waves-effect waves-light' >
                                          </form>
                                         </td>
                                     </tr>
@@ -287,43 +287,7 @@
             </div>
         </div>
 
-        <div class="modal fade" id="update">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    
-                    <!-- header -->
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title text-success">ADD new member</h3>
-                    </div>
-                    
-                    <!-- body(form) -->
-                    <div class="modal-body">
-                        <form role="form" method="post" action="addmember.php">
-                            
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Name" name="user_name" >
-                            </div>
-
-                            <div class="form-group">
-                                <input type="" class="form-control" placeholder="E-mail" name="email"> 
-                            </div>
-                                  <div class="form-group">
-                                <input type="" class="form-control" placeholder="Mobile" name="mobile"> 
-                            </div>
-                        <button type="submit" class="btn btn-primary btn-block" name="add_mem">Add</button>
-
-
-                        </form>
-                    </div>
-
-                    <!-- footer -->
-                    <div class="modal-footer">
-                    </div>
-                </div>
-            </div>
-        </div>
-
+ 
 
     </body>
 

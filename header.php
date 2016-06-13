@@ -148,7 +148,7 @@ header("Location:index.php");
             </div>
 			<li>
                                 <a href="calendar.html" class="waves-effect active"><i class="md md-event"></i><span> Calendar </span></a>
-                            </li>
+            </li>
             <!-- Top Bar End -->
 
 
@@ -160,7 +160,7 @@ header("Location:index.php");
 
 
                     <!--- Divider -->
-                     <div class="left side-menu">
+             <div class="left side-menu">
                 <div class="sidebar-inner slimscrollleft">
                     <div class="user-details">
                         <div class="pull-left">
