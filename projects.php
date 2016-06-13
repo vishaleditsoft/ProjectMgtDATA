@@ -181,7 +181,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label class="control-label">Project Name</label>
-                                                            <input class="form-control form-white" placeholder="Project name" type="text" name="proj_name">
+                                                            <input class="form-control form-white" placeholder="Project name" id="proj_name" type="text" name="proj_name">
                                                         </div>
 														
                                                         <div class="col-md-6">
@@ -190,7 +190,17 @@
                                                         </div>
 														 <div class="col-md-6">
                                                             <label class="control-label">Assign to</label>
-															<input class="form-control form-white" id="assignto" placeholder="Memmber to Assign to Project" type="text" name="assign_to">
+														 <select id="membrs" multiple="multiple">
+																<?php include('connection.php');
+																$quer="select * from members";
+																$res=mysqli_query($conn,$quer);
+																while($rt=mysqli_fetch_assoc($res))
+															{
+																?>
+																<option value="<?php echo $rt['mem_id'];?>"><?php echo $rt['mem_name']; ?></option>
+																<?php }?>
+															</select>
+															<button>Set</button>
                                                         </div>
 														<div class="col-md-6">
                                                             <label class="control-label">Member ID</label>
@@ -217,7 +227,7 @@
                                                     </div>
 													<div class="row">
 													<div class="col-md-6">
-														<button type="submit" class="btn btn-default waves-effect">Submit</button>
+														<button type="submit" id="btnSelected" class="btn btn-default waves-effect">Submit</button>
 
 													</div>
 													</div>
@@ -380,8 +390,34 @@
         
         <!-- CUSTOM JS -->
         <script src="assets/js/jquery.min.js"></script>
+		
         <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/detect.js"></script>
+		<link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css"
+        rel="stylesheet" type="text/css" />
+    <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"
+        type="text/javascript"></script>
+        <script type="text/javascript">
+		$(function () {
+            $('#membrs').multiselect({
+                includeSelectAllOption: true
+            });
+			
+			
+            $('#btnSelected').click(function () {
+               var message = ""; 
+			   
+				var selected = $("#membrs option:selected");
+                var fnam=$("#proj_name").val();
+				selected.each(function () {
+                    message += $(this).val() +  ",";
+                });
+                      $.post('addpro.php',{menname:message,pronam:fnam})
+					  
+					  
+					  });
+        });
+		</script>
+		<script src="assets/js/detect.js"></script>
         <script src="assets/js/fastclick.js"></script>
         <script src="assets/js/jquery.slimscroll.js"></script>
         <script src="assets/js/jquery.blockUI.js"></script>

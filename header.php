@@ -32,36 +32,10 @@ header("Location:index.php");
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
 		<script src="assets/js/modernizr.min.js"></script>
 	        <!-- jQuery  -->
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 		
-		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-		<link rel="stylesheet" href="/resources/demos/style.css">
-		<script type = "text/javascript" 
-         src = "http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-		
-      <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-   <script type="text/javascript" language="javascript">
-		 $(function(){
-		 var mytags= <?php include('member_autocomple.php'); ?>;
-		 $(".memid").autocomplete({
-			 
-			source:mytags
-	   });
-	 //  alert(mytags);
-	   });
-		 </script>
-
 
  <title>Project Management System</title>
-		<script type="text/javascript">
-		window.setInterval('refreshdiv()',5000);
-		function refreshdiv()
-		{
-			document.getElementById("notific").innerHTML='<object type="text/html" data="loadphpscr.php">';
-		}
 		
-		</script>
-       
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
