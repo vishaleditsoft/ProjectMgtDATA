@@ -1,201 +1,5 @@
-
-<?php 
-
-include_once('connection.php');
-session_start(); 
-if(!isset($_SESSION['manager_id'])){
-header("Location:index.php");
-   
-}
-?>
-<!DOCTYPE html>
-<html>
-    
-<!-- Mirrored from moltran.coderthemes.com/green/modals.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 May 2016 13:48:02 GMT -->
-<head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
-        <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
-        <meta name="author" content="Coderthemes">
-
-        <link rel="shortcut icon" href="assets/images/favicon_1.ico">
-		<link href="assets/plugins/sweetalert/dist/sweetalert.css" rel="stylesheet" type="text/css">
-		<link href="assets/plugins/modal-effect/css/component.css" rel="stylesheet">
-        
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/core.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/icons.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/components.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/pages.css" rel="stylesheet" type="text/css">
-        <link href="assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css" rel="stylesheet">
-        <link href="assets/css/menu.css" rel="stylesheet" type="text/css">
-        <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
-		
-	     
-
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-
-        
-    </head>
-
-
-
-    <body class="fixed-left">
-        
-        <!-- Begin page -->
-        <div id="wrapper">
-        
-            <!-- Top Bar Start -->
-            <div class="topbar">
-                <!-- LOGO -->
-                <div class="topbar-left">
-                    <div class="text-center">
-                        <a href="index-2.html" class="logo"><i class="md md-terrain"></i> <span>Editsoft</span></a>
-                    </div>
-                </div>
-                <!-- Button mobile view to collapse sidebar menu -->
-                <div class="navbar navbar-default"  role="navigation">
-                    <div class="container">
-                        <div class="">
-                            <div class="pull-left">
-                                <button class="button-menu-mobile open-left">
-                                    <i class="fa fa-bars"></i>
-                                </button>
-                                <span class="clearfix"></span>
-                            </div>
-                            <style>
-							 .navbar-default
-							{
-								background-color : #323a46;
-							
-							}
-							.text-center
-							{
-								background-color : #323a46;
-							
-							}
-							</style>
-
-                            <ul class="nav navbar-nav navbar-right pull-right">
-                                <li class="dropdown hidden-xs">
-                                    <a href="#" data-target="#" class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="true">
-                                        <i class="md md-notifications"></i> <span class="badge badge-xs badge-danger">3</span>
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-menu-lg">
-                                        <li class="text-center notifi-title">Notification</li>
-                                        <li class="list-group" id="notific">
-                                           <!-- list item-->
-                                           <a href="javascript:void(0);" class="list-group-item">
-                                              <div class="media">
-                                                 <div class="pull-left">
-                                                    <em class="fa fa-user-plus fa-2x text-info"></em>
-                                                 </div>
-                                                 <div class="media-body clearfix">
-                                                    <div class="media-heading">New user registered</div>
-                                                    <p class="m-0">
-                                                       <small>You have 10 unread messages</small>
-                                                    </p>
-                                                 </div>
-                                              </div>
-                                           </a>
-                                           <!-- list item-->
-                                            <a href="javascript:void(0);" class="list-group-item">
-                                              <div class="media">
-                                                 <div class="pull-left">
-                                                    <em class="fa fa-diamond fa-2x text-primary"></em>
-                                                 </div>
-                                                 <div class="media-body clearfix">
-                                                    <div class="media-heading">New settings</div>
-                                                    <p class="m-0">
-                                                       <small>There are new settings available</small>
-                                                    </p>
-                                                 </div>
-                                              </div>
-                                            </a>
-                                            
-                                           <!-- last list item -->
-                                            <a href="javascript:void(0);" class="list-group-item">
-                                              <small>See all notifications</small>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="hidden-xs">
-                                    <a href="#" class="right-bar-toggle waves-effect waves-light"><i class="md md-chat"></i></a>
-                                </li>
-                                <li class="dropdown">
-                                    <ul class="dropdown-menu">
-                                        <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile</a></li>
-                                        <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
-                                        <li><a href="javascript:void(0)"><i class="md md-lock"></i> Lock screen</a></li>
-                                        <li><a href="javascript:void(0)"><i class="md md-settings-power"></i> Logout</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--/.nav-collapse -->
-                    </div>
-                </div>
-            </div>
-			<li>
-                                <a href="calendar.html" class="waves-effect active"><i class="md md-event"></i><span> Calendar </span></a>
-                            </li>
-            <!-- Top Bar End -->
-
-
-            <!-- ========== Left Sidebar Start ========== -->
-
-          
-            <div class="left side-menu">
-                <div class="sidebar-inner slimscrollleft">
-                    <div class="user-details">
-                        <div class="pull-left">
-                            <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md img-circle">
-                        </div>
-                        <div class="user-info">
-                            <div class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Manager <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a></li>
-                                    <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
-                                    <li><a href="javascript:void(0)"><i class="md md-lock"></i> Lock screen</a></li>
-                                    <li><a href="logout.php"><i class="md md-settings-power"></i> Logout</a></li>
-                                </ul>
-                            </div>
-                            
-                            <p class="text-muted m-0">Administrator</p>
-                        </div>
-                    </div>
-                   
-
-
-                    <!--- Divider -->
-                     <div class="left side-menu">
-                <div class="sidebar-inner slimscrollleft">
-                    <div class="user-details">
-                        <div class="pull-left">
-                            <img src="assets/images/users/avatar-1.jpg" alt="" class="thumb-md img-circle">
-                        </div>
-                        <div class="user-info">
-                            <div class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Manager <span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="javascript:void(0)"><i class="md md-face-unlock"></i> Profile<div class="ripple-wrapper"></div></a></li>
-                                    <li><a href="javascript:void(0)"><i class="md md-settings"></i> Settings</a></li>
-                                    <li><a href="javascript:void(0)"><i class="md md-lock"></i> Lock screen</a></li>
-                                    <li><a href="logout.php"><i class="md md-settings-power"></i> Logout</a></li>
-                                </ul>
-                            </div>
-                            
-                            <p class="text-muted m-0">Administrator</p>
-                        </div>
-                    </div>
-                   
+<?php include("header.php");?>
+	
 
 
                     <!--- Divider -->
@@ -249,56 +53,36 @@ header("Location:index.php");
                 <!-- Start content -->
                 <div class="content">
                     <div class="container">
-
-                        <!-- Page-Title -->
-                        <div class="row">
-                            <div class="col-sm-12">
-                                    <ol class="breadcrumb pull-right">
-                                    <li><a href="#">Moltran</a></li>
-                                    <li><a href="#">Elements</a></li>
-                                    <li class="active">Modals</li>
-                                </ol>
-                            </div>
-                        </div>
-
-
-                        <!-- Bootstrap Modals -->
-                        <!-- End of row -->
-
- <!-- End row -->
-
-
-
-                        <!-- Modals Examples -->
                         <div class="row"> 
                             <div class="col-md-12"> 
                                 <div class="panel panel-default"> 
-                                  
                                     <div class="panel-heading">
                                         <h3 class="panel-title"> Project Names </h3>
                                     </div> 
                                     <div class="panel-body">
-                                        <table class="table"> 
-                                             
+                                        <table class="table table-striped"> 
                                             <tbody> 
-													<?php 
+													<?php
+                                                                $sr=1;  
 																$man_id=$_SESSION['manager_id'];
 																?> <?php
 																$proj_ret="select * from project where `project_manger_id`='$man_id'";
 																$procquer=mysqli_query($conn,$proj_ret);
 																while($result=mysqli_fetch_assoc($procquer)) 
 																{?>
-																<tr>
+    															<tr>                                         <td style="width:10%;"><a style="width:100%;padding: 3px 0px;" href="javascript:;" class=" btn btn-primary waves-effect waves-light" >  
+                                                                <?php echo $sr;$sr+=1; ?></a></td>
 																
-																<td><a style="width:100%;" href="javascript:;" class="md-trigger btn btn-primary waves-effect waves-light" data-modal="mo<?php echo $result['project_id'];?>">	
+																<td style="width:70%;"> <a style="width:100%;" href="javascript:;" class="md-trigger btn btn-primary waves-effect waves-light" data-modal="mo<?php echo $result['project_id'];?>">	
 																<?php echo $result['project_name'];?></a> 
 																</td>
-																<td><a style="width:100%;" href="javascript:;" class="md-trigger btn btn-primary waves-effect waves-light" data-modal="ed<?php echo $result['project_id'];?>">	
+																<td style="width:10%;"><a style="width:100%;" href="javascript:;" class="md-trigger btn btn-primary waves-effect waves-light" data-modal="ed<?php echo $result['project_id'];?>">	
 																Edit</a></td>
-																<td><form action="delproj.php" method="POST"><input type="hidden" name="deldat" value="<?php echo $result['project_id'];?>"><input type="Submit" value="Delete" id="del<?php $result['project_id'];?>"></form>
+																<td style="width:10%;"><form action="delproj.php" method="POST"><input type="hidden" name="deldat" value="<?php echo $result['project_id'];?>"><input type="Submit" value="Delete" class="btn btn-primary" style="    padding: 3px 19px;" id="del<?php $result['project_id'];?>"></form>
 																
 																
 																</td>
+																
 																</tr>
 															 <div class="md-modal md-effect-8" id="mo<?php echo $result['project_id'];?>">
                                         <div class="md-content">
@@ -326,6 +110,7 @@ header("Location:index.php");
                                                         <div class="col-md-6">
                                                             <label class="control-label">Project Name</label>
                                                             <input class="form-control form-white" value=<?php echo $result['project_name'];?> placeholder="Project name" type="text" name="proj_name">
+															
                                                         </div>
 														
                                                         <div class="col-md-6">
@@ -345,10 +130,11 @@ header("Location:index.php");
 															<input class="form-control form-white" placeholder="Milestone" type="text" value="<?php echo $result['project_milestone'];?>" name="mile_stone">
                                                         </div>
 														
+														
 													<div class="col-md-6">
                                                             <label class="control-label">Deadline</label>
                                                             <div class="input-group">
-							                                    <input type="text" class="form-control form-white" placeholder="mm/dd/yyyy" id="datepicker" name="proj_dead" value="<?php echo $result['project_end_date'];?>">
+							                                    <input type="text" class="form-control form-white" placeholder="mm/dd/yyyy" id="proi<?php echo $result['project_id'];?>" name="proj_dead" value="<?php echo $result['project_end_date'];?>">
 							                                    <span class="input-group-addon">
 							                                    <i class="glyphicon glyphicon-calendar"></i></span>
 							                                </div>
@@ -402,8 +188,19 @@ header("Location:index.php");
                                                         </div>
 														 <div class="col-md-6">
                                                             <label class="control-label">Assign to</label>
-															<input class="form-control form-white" id="assignto" placeholder="Memmber to Assign to Project" type="text" name="assign_to">
+														 <select id="membrs" multiple="multiple">
+																<?php include('connection.php');
+																$quer="select * from members";
+																$res=mysqli_query($conn,$quer);
+																while($rt=mysqli_fetch_assoc($res))
+															{
+																?>
+																<option value="<?php echo $rt['mem_id'];?>"><?php echo $rt['mem_name']; ?></option>
+																<?php }?>
+															</select>
+															<button>Set</button>
                                                         </div>
+													
 														<div class="col-md-6">
                                                             <label class="control-label">Member ID</label>
                                                             <input class="form-control form-white" class="memid"	placeholder="Member" type="text" name="proj_member_id">
@@ -416,8 +213,9 @@ header("Location:index.php");
 													<div class="col-md-6">
                                                             <label class="control-label">Deadline</label>
                                                             <div class="input-group">
-							                                    <input type="text" class="form-control form-white" placeholder="mm/dd/yyyy" id="datepicker" name="proj_dead">
+							                                    <input type="text" class="form-control form-white" placeholder="mm/dd/yyyy" id="datepicker1" name="proj_dead">
 							                                    <span class="input-group-addon">
+																
 							                                    <i class="glyphicon glyphicon-calendar"></i></span>
 							                                </div>
 															
@@ -429,7 +227,7 @@ header("Location:index.php");
                                                     </div>
 													<div class="row">
 													<div class="col-md-6">
-														<button type="submit" class="btn btn-default waves-effect">Submit</button>
+														<button type="submit" id="btnSelected"  class="btn btn-default waves-effect">Submit</button>
 
 													</div>
 													</div>
@@ -473,113 +271,6 @@ header("Location:index.php");
 
 
             <!-- Right Sidebar -->
-            <div class="side-bar right-bar nicescroll">
-                <h4 class="text-center">Chat</h4>
-                <div class="contact-list nicescroll">
-                    <ul class="list-group contacts-list">
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-1.jpg" alt="">
-                                </div>
-                                <span class="name">Chadengle</span>
-                                <i class="fa fa-circle online"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-2.jpg" alt="">
-                                </div>
-                                <span class="name">Tomaslau</span>
-                                <i class="fa fa-circle online"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-3.jpg" alt="">
-                                </div>
-                                <span class="name">Stillnotdavid</span>
-                                <i class="fa fa-circle online"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-4.jpg" alt="">
-                                </div>
-                                <span class="name">Kurafire</span>
-                                <i class="fa fa-circle online"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-5.jpg" alt="">
-                                </div>
-                                <span class="name">Shahedk</span>
-                                <i class="fa fa-circle away"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-6.jpg" alt="">
-                                </div>
-                                <span class="name">Adhamdannaway</span>
-                                <i class="fa fa-circle away"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-7.jpg" alt="">
-                                </div>
-                                <span class="name">Ok</span>
-                                <i class="fa fa-circle away"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-8.jpg" alt="">
-                                </div>
-                                <span class="name">Arashasghari</span>
-                                <i class="fa fa-circle offline"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-9.jpg" alt="">
-                                </div>
-                                <span class="name">Joshaustin</span>
-                                <i class="fa fa-circle offline"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                        <li class="list-group-item">
-                            <a href="#">
-                                <div class="avatar">
-                                    <img src="assets/images/users/avatar-10.jpg" alt="">
-                                </div>
-                                <span class="name">Sortino</span>
-                                <i class="fa fa-circle offline"></i>
-                            </a>
-                            <span class="clearfix"></span>
-                        </li>
-                    </ul>  
-                </div>
-            </div>
             <!-- /Right-bar -->
 
 
@@ -591,7 +282,7 @@ header("Location:index.php");
         </script>
         
         <!-- CUSTOM JS -->
-        <script src="assets/js/jquery.min.js"></script>
+      
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/detect.js"></script>
         <script src="assets/js/fastclick.js"></script>
@@ -601,7 +292,36 @@ header("Location:index.php");
         <script src="assets/js/wow.min.js"></script>
         <script src="assets/js/jquery.nicescroll.js"></script>
         <script src="assets/js/jquery.scrollTo.min.js"></script>
-		<script src="assets/js/modernizr.min.js"></script>
+		 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css"
+        rel="stylesheet" type="text/css" />
+       <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css"
+        rel="stylesheet" type="text/css" />
+    <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"
+        type="text/javascript"></script>
+		
+		   <script type="text/javascript">
+        $(function () {
+            $('#membrs').multiselect({
+                includeSelectAllOption: true
+            });
+			
+			
+            $('#btnSelected').click(function () {
+               var message = ""; 
+				var selected = $("#membrs option:selected");
+                selected.each(function () {
+                    message += $(this).val() +  ",";
+                });
+                      $.post('addpro.php',{menname:message})
+					  
+					  
+					  });
+        });
+    </script>
+    
+		
         <script src="assets/js/jquery.app.js"></script>
 
         <!-- Modal-Effect -->
@@ -614,9 +334,10 @@ header("Location:index.php");
         <script>
             jQuery(document).ready(function() {
             	  // Date Picker
-                jQuery('#datepicker').datepicker();
-                            });
-        </script>
+                jQuery('#datepicker1').datepicker();
+                 jQuery('#datepicker2').datepicker();
+                                    						});
+			</script>
 	</body>
 
 <!-- Mirrored from moltran.coderthemes.com/green/modals.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 May 2016 13:48:02 GMT -->

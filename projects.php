@@ -73,12 +73,16 @@
     															<tr>                                         <td style="width:10%;"><a style="width:100%;padding: 3px 0px;" href="javascript:;" class=" btn btn-primary waves-effect waves-light" >  
                                                                 <?php echo $sr;$sr+=1; ?></a></td>
 																
-																<td style="width:70%;"> <a style="width:100%;" href="javascript:;" class="md-trigger btn btn-primary waves-effect waves-light" data-modal="mo<?php echo $result['project_id'];?>">	
+																<td style="width:70%;"> <a style="width:100%;" href="javascript:;" class="md-trigger btn btn-success waves-effect waves-light" data-modal="mo<?php echo $result['project_id'];?>">	
 																<?php echo $result['project_name'];?></a> 
 																</td>
-																<td style="width:10%;"><a style="width:100%;" href="javascript:;" class="md-trigger btn btn-primary waves-effect waves-light" data-modal="ed<?php echo $result['project_id'];?>">	
+																<td style="width:10%;"><a style="width:100%;" href="javascript:;" class="md-trigger btn btn-warning waves-effect waves-light" data-modal="ed<?php echo $result['project_id'];?>">	
 																Edit</a></td>
-																<td style="width:10%;"><form action="delproj.php" method="POST"><input type="hidden" name="deldat" value="<?php echo $result['project_id'];?>"><input type="Submit" value="Delete" class="btn btn-primary" style="    padding: 3px 19px;" id="del<?php $result['project_id'];?>"></form>
+																<td style="width:10%;">
+                                                                <form action="delproj.php" method="POST">
+                                                                <input type="hidden" name="deldat" value="<?php echo $result['project_id'];?>">
+                                                                <input type="Submit" value="Delete" class="btn btn-danger " style="    padding: 3px 19px;" id="del<?php $result['project_id'];?>">
+                                                                </form>
 																
 																
 																</td>
@@ -101,7 +105,7 @@
                                                 <button class="md-close btn-sm btn-primary waves-effect waves-light">Close me!</button>
                                             </div>                                        </div>
                                     </div>
-													 <div class="md-modal md-effect-8" id="ed<?php echo $result['project_id'];?>">
+										 <div class="md-modal md-effect-8" id="ed<?php echo $result['project_id'];?>">
                                         <div class="md-content">
                                             <h3>Project Details</h3>
                                             <div>
@@ -177,7 +181,7 @@
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label class="control-label">Project Name</label>
-                                                            <input class="form-control form-white" placeholder="Project name" type="text" name="proj_name">
+                                                            <input class="form-control form-white" placeholder="Project name" id="proj_name" type="text" name="proj_name">
                                                         </div>
 														
                                                         <div class="col-md-6">
@@ -186,7 +190,17 @@
                                                         </div>
 														 <div class="col-md-6">
                                                             <label class="control-label">Assign to</label>
-															<input class="form-control form-white" id="assignto" placeholder="Memmber to Assign to Project" type="text" name="assign_to">
+														 <select id="membrs" multiple="multiple">
+																<?php include('connection.php');
+																$quer="select * from members";
+																$res=mysqli_query($conn,$quer);
+																while($rt=mysqli_fetch_assoc($res))
+															{
+																?>
+																<option value="<?php echo $rt['mem_id'];?>"><?php echo $rt['mem_name']; ?></option>
+																<?php }?>
+															</select>
+															<button>Set</button>
                                                         </div>
 														<div class="col-md-6">
                                                             <label class="control-label">Member ID</label>
@@ -213,7 +227,7 @@
                                                     </div>
 													<div class="row">
 													<div class="col-md-6">
-														<button type="submit" class="btn btn-default waves-effect">Submit</button>
+														<button type="submit" id="btnSelected" class="btn btn-default waves-effect">Submit</button>
 
 													</div>
 													</div>
@@ -376,8 +390,34 @@
         
         <!-- CUSTOM JS -->
         <script src="assets/js/jquery.min.js"></script>
+		
         <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/detect.js"></script>
+		<link href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css"
+        rel="stylesheet" type="text/css" />
+    <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"
+        type="text/javascript"></script>
+        <script type="text/javascript">
+		$(function () {
+            $('#membrs').multiselect({
+                includeSelectAllOption: true
+            });
+			
+			
+            $('#btnSelected').click(function () {
+               var message = ""; 
+			   
+				var selected = $("#membrs option:selected");
+                var fnam=$("#proj_name").val();
+				selected.each(function () {
+                    message += $(this).val() +  ",";
+                });
+                      $.post('addpro.php',{menname:message,pronam:fnam})
+					  
+					  
+					  });
+        });
+		</script>
+		<script src="assets/js/detect.js"></script>
         <script src="assets/js/fastclick.js"></script>
         <script src="assets/js/jquery.slimscroll.js"></script>
         <script src="assets/js/jquery.blockUI.js"></script>
