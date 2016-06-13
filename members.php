@@ -63,7 +63,7 @@
                         </div>
 
                         <!-- add member link -->
-                        <div class="row" style="margin-bottom:20px;">
+                        <div class="row"  style="margin-bottom:20px;">
                             <div class="col-sm-6">
                                <button class="btn btn-danger" data-toggle="modal" data-target="#add">Add new member</button>
                              
@@ -75,9 +75,9 @@
                         <!-- add member link end -->
                         <!-- Start Widget -->
                         <!--Widget-4 -->
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <table class="table table-striped">
+                        <div class="row" >
+                            <div class="col-lg-12" >
+                                <table class="table table-striped" >
                                     <tr>
                                         <th>sr</th>
                                         <th>Name</th>
@@ -87,28 +87,52 @@
                                         <th>  </th>
                                     </tr>
                                     <?php 
+                                    $count=1;
                                     $qu="select * from members ";
                                      $ex=mysqli_query($conn,$qu);
                                      while($r=mysqli_fetch_array($ex)){
-                                     echo "<tr>
-                                        <td>".$r['mem_id']."</td>
-                                        <td>".$r['mem_name']."</td>
-                                        <td>".$r['mem_email']."</td>
-                                        <td>".$r['mem_mobile']."</td>
-                                       <td ><a  href='javascript:;' class='md-trigger btn btn-primary waves-effect waves-light' > Edit</a></td>
-                                         <td >
+                                     ?>
+                                     <tr>
+                                        <td ><?php echo $count++; ?></td>
+                                        <td><?php echo  $r['mem_name'];?></td>
+                                        <td><?php echo  $r['mem_email'];?></td>
+                                        <td><?php echo $r['mem_mobile'];?></td> 
+                                        <td ><a  href='javascript:;' class='md-trigger btn btn-warning waves-effect waves-light'   data-toggle="modal" data-modal="#ed<?php echo $r['mem_name']; ?>" >   
+                                                                Edit</a></td>
+                                        <td>
                                          <form action='mem_up_del.php' method='POST'>
-                                             <input type='hidden' name='deldat' value='".$r['mem_id']."'>
-                                             
-                                             <input type='Submit' value='Delete' id='del". $r['mem_id']." class='btn btn-primary waves-effect waves-light' >
+                                             <input type='hidden' name='deldat' value="<?php echo $r['mem_id']; ?>" />
+                                             <input type='Submit' class="btn btn-primary" value='Delete' id='del<?php echo $r['mem_id'];?>' class='btn btn-primary waves-effect waves-light' >
                                          </form>
                                         </td>
-                                    </tr>";
-                                }
-  
+                                    </tr>
+
+                                 <div class="md-modal md-effect-8" id="ed<?php echo $r['mem_id']; ?> ">
+                                        <div class="md-content">
+                                            <h3>Project Details</h3>
+                                            <div>
+                                                
+                                                <form role="form" action="editproj.php" method="POST" enctype="multipart/form-data">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label class="control-label">Member ID</label>
+                                                            <input class="form-control form-white" class="memid"    placeholder="Member" type="text" name="proj_member_id">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                               <button class="md-close btn-sm btn-primary waves-effect waves-light">Close me!</button>
+                                            </div> 
+
+                                       </div>
 
 
-                                    ?>
+                                </div>
+
+
+                                            <?php 
+                                                                }?>
+                                          
+
 
 
 
