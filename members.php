@@ -97,8 +97,13 @@
                                         <td><?php echo  $r['mem_name'];?></td>
                                         <td><?php echo  $r['mem_email'];?></td>
                                         <td><?php echo $r['mem_mobile'];?></td> 
-                                        <td ><a  href='javascript:;' class='md-trigger btn btn-warning waves-effect waves-light'   data-toggle="modal" data-modal="#ed<?php echo $r['mem_name']; ?>" >   
-                                                                Edit</a></td>
+                                        <td>
+                                         <form action='mem_up_del.php' method='POST'>
+                                             <input type='hidden' name='up_dat' value="<?php echo $r['mem_id']; ?>" />
+                                             <input type='Submit' class="btn btn-primary" value='Edit' id='up<?php echo $r['mem_id'];?>' class='btn btn-primary waves-effect waves-light' >
+                                         </form>
+                                        </td>
+
                                         <td>
                                          <form action='mem_up_del.php' method='POST'>
                                              <input type='hidden' name='deldat' value="<?php echo $r['mem_id']; ?>" />
