@@ -96,15 +96,22 @@
                                                 <ul>
                                                     <li><strong>Assign To</strong> <?php echo $result['assign_to'];?></li>
                                                     <li><strong>Description</strong> <?php echo $result['project_desc'];?></li>
-													<li><strong>Project Milestone</strong> <?php echo $result['project_milestone'];?></li>
+													
 													<li><strong>Project Creation date</strong> <?php echo $result['project_creation_date'];?></li>
 													<li><strong>Project End date</strong> <?php echo $result['project_end_date'];?></li>
 													<li><strong>Project Last update</strong> <?php echo $result['project_last_update'];?></li>
+                                                    <li><strong>Project Status</strong> <?php echo $result['project_status'];?></li>
 													<li><strong>Project Documents</strong> <a href=<?php echo $result['project_document'];?> target="_blank">Downloads</a></li>
                                                 </ul>
-                                                <button class="md-close btn-sm btn-primary waves-effect waves-light">Close me!</button>
+                                                <div class="modal-footer">
+                                                <button class="md-close btn-sm btn-primary waves-effect waves-light">Close me!</button></div>
                                             </div>                                        </div>
                                     </div>
+
+
+                                            <!-- Edit project -->
+
+
 										 <div class="md-modal md-effect-8" id="ed<?php echo $result['project_id'];?>">
                                         <div class="md-content">
                                             <h3>Project Details</h3>
@@ -146,10 +153,18 @@
                                                             <label class="control-label">Documents</label>
 															<input class="form-control" placeholder="Project Documents" type="file" name="proj_doco">
 														</div>
+                                                        <div class="col-md-6">
+                                                            <label class="control-label">status</label>
+                                                            <select  name="proj_status">
+                                                                <option value="pending">pending</option>
+                                                                <option value="completed">completed</option>
+
+                                                            </select>
+                                                        </div>
                                                     </div>
 													<input type="hidden" name="pid" value="<?php echo $result['project_id']; ?>">
 													<div class="row">
-													<div class="col-md-6">
+													<div class="col-md-6" style="margin: 10px;">
 														<button type="submit" class="btn btn-default waves-effect">Submit</button>
 
 													</div>
@@ -188,33 +203,30 @@
                                                             <label class="control-label">Discription</label>
 															<input class="form-control form-white" placeholder="Descption of Project" type="text" name="proj_desc">
                                                         </div>
-														 <div class="col-md-6">
+														 <div class="col-md-6" style="    margin: 10px;">
                                                             <label class="control-label">Assign to</label>
-														 <select id="membrs" multiple="multiple">
+														 <select id="membrs" name="assign_mem[]" multiple="multiple">
 																<?php include('connection.php');
 																$quer="select * from members";
 																$res=mysqli_query($conn,$quer);
 																while($rt=mysqli_fetch_assoc($res))
 															{
 																?>
-																<option value="<?php echo $rt['mem_id'];?>"><?php echo $rt['mem_name']; ?></option>
+																<option value="<?php echo $rt['mem_name'];?>"><?php echo $rt['mem_name']; ?></option>
 																<?php }?>
 															</select>
-															<button>Set</button>
+															
                                                         </div>
 														<div class="col-md-6">
                                                             <label class="control-label">Member ID</label>
                                                             <input class="form-control form-white" class="memid"	placeholder="Member" type="text" name="proj_member_id">
                                                         </div>
-														<div class="col-md-6">
-                                                            <label class="control-label">Milestion</label>
-															<input class="form-control form-white" placeholder="Milestone" type="text" name="mile_stone">
-                                                        </div>
+														
 														
 													<div class="col-md-6">
                                                             <label class="control-label">Deadline</label>
                                                             <div class="input-group">
-							                                    <input type="text" class="form-control form-white" placeholder="mm/dd/yyyy" id="datepicker" name="proj_dead">
+							                                    <input type="text" class="form-control form-white" placeholder="mm/dd/yyyy" id="datepicker1" name="proj_dead">
 							                                    <span class="input-group-addon">
 							                                    <i class="glyphicon glyphicon-calendar"></i></span>
 							                                </div>
@@ -226,7 +238,7 @@
 														</div>
                                                     </div>
 													<div class="row">
-													<div class="col-md-6">
+													<div class="col-md-6" style="    margin: 10px;">
 														<button type="submit" id="btnSelected" class="btn btn-default waves-effect">Submit</button>
 
 													</div>
@@ -438,7 +450,7 @@
         <script>
             jQuery(document).ready(function() {
             	  // Date Picker
-                jQuery('#datepicker').datepicker();
+                jQuery('#datepicker1').datepicker();
                             });
         </script>
 	</body>
