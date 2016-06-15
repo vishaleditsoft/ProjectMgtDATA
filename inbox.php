@@ -1,3 +1,4 @@
+
 <?php include("header.php");?>
 
 
@@ -84,7 +85,7 @@
                                         <div class="table-responsive">
                                             <table class="table table-hover mails">
                                                 <tbody>
-												
+												<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 												<?php 
 													$email=$_SESSION['manger_email'];
 												$query="select * from `messages` where `to`='$email';";
@@ -120,10 +121,10 @@
                                                          <?php  echo $result['date']; ?>
                                                          </td>
 													</form>
-														<td><form method="Post">
+														<td><form method="POST">
 														 <input type="hidden" value="<?php echo $result['message_id'];?>" name="msid" id="m<?php echo $result['message_id'];?>">
 														 
-														 <button type="Submit" class="btn-danger"id="d<?php echo $result['message_id'];?>" >Delete Mail</button>
+														 <button type="Submit" class="btn-danger" id="d<?php echo $result['message_id'];?>" >Delete Mail</button>
 														</form>
 														<script>
 																		$(document).ready(function()
@@ -131,6 +132,7 @@
 																			$("#d<?php echo $result['message_id'];?>").click(function()
 																			{
 																			var conf=confirm("Are You Sure you want to delete");
+																			
 																			if(conf==true)
 																			{
 																				var na=$("#m<?php echo $result['message_id'];?>").val();
@@ -142,7 +144,7 @@
 																			}
 																			});
 																		});
-																		</script>
+																</script>
 														
 														</td>
 													                                                    </tr>
@@ -156,17 +158,7 @@
                                         
                                         <hr>
                                         
-                                        <div class="row">
-                                            <div class="col-xs-7">
-                                                Showing 1 - 20 of 289
-                                            </div>
-                                            <div class="col-xs-5">
-                                                <div class="btn-group pull-right">
-                                                  <button type="button" class="btn btn-default waves-effect"><i class="fa fa-chevron-left"></i></button>
-                                                  <button type="button" class="btn btn-default waves-effect"><i class="fa fa-chevron-right"></i></button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     
                                     </div> <!-- panel body -->
                                 </div> <!-- panel -->
@@ -310,6 +302,7 @@
 
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
+		
         <script src="assets/js/bootstrap.min.js"></script>
         <script src="assets/js/detect.js"></script>
         <script src="assets/js/fastclick.js"></script>

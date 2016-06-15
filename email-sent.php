@@ -62,7 +62,7 @@
                                 <div class="panel panel-default p-0 m-t-20">
                                     <div class="panel-body p-0">
                                         <div class="list-group mail-list">
-                                          <a href="inbox.php" class="list-group-item no-border active"><i class="fa fa-download m-r-5"></i>Inbox <b>(8)</b></a>
+                                          <a href="inbox.php" class="list-group-item no-border active"><i class="fa fa-download m-r-5"></i>Inbox </a>
                                           <a href="email-sent.php" class="list-group-item no-border"><i class="fa fa-paper-plane-o m-r-5"></i>Sent Mail</a>
                                           
                                         </div>
@@ -92,47 +92,87 @@
                                 
 
                                 <!-- Message -->
-                                <div class="panel panel-default m-t-20">
-                                    <div class="panel-heading">
-										<?php 
-
-									$que1="select * from messages where `from`='".$_SESSION['manger_email']."'";
-										$rest=mysqli_query($conn,$que1);
-										
-										while($res=mysqli_fetch_array($rest))
-										{	
-										?>
-
-                                    </div>
+                                     <div class="panel panel-default m-t-20">
                                     <div class="panel-body">
-                                        <div class="media m-b-30" style="margin-bottom:10px;">
-                                            
-                                            <div class="media-body">
-                                                <span class="media-meta pull-right"><?php echo $res['date'];?></span>
-                                               
-                                             <b>   To:</b><small class="text-muted"><?php echo $res['to'];?></small>
-                                            </div>
-                                        </div> <!-- media -->
-										<b>Subject:</b><?php echo $res['subject']; ?>
-                                       <p> <b>Message:</b>
-										<?php echo $res['content'];
-                                        echo "<hr>";
-										}
-										?>
-										</p>
-                                        <hr>
+                                        <div class="table-responsive">
+                                            <table class="table table-hover mails">
+                                                <tbody>
+												
+												<?php 
+													$email=$_SESSION['manger_email'];
+												$query="select * from `messages` where `from`='$email';";
+												$rest=mysqli_query($conn,$query);
+												while($result=mysqli_fetch_assoc($rest))
+												{
+													
+												?>
+												
+													
+                                                    <tr>
+														
+                                                        <td class="mail-select">
+                                                                                                                    </td>
+                                                        <td class="mail-rateing">
+                                                            <i class="fa fa-star"></i>
+                                                        </td>
+														<form action="email-read.php" method="Post">
+                                                        <td><button class="btn" style="display:inline-block;text-decoration=none;background-color:white">
+                                                            <?php echo $result['from']; ?>
+                                                        <input type="hidden" value="<?php echo $result['message_id'];?>" name="msid">
+														 </button>
+														 </td>
+															
 
+                                                        <td>
+                                                           <i class="fa fa-circle text-info m-r-15"></i><?php  echo $result['subject']; ?>
+                                                        </td>
+                                                        <td>
+                                                            <i class="fa fa-paperclip"></i>
+                                                        </td>
+                                                        <td class="text-right">
+                                                         <?php  echo $result['date']; ?>
+                                                         </td>
+													</form>
+														<td><form method="Post">
+														 <input type="hidden" value="<?php echo $result['message_id'];?>" name="msid" id="m<?php echo $result['message_id'];?>">
+														 
+														 <button type="Submit" class="btn-danger"id="d<?php echo $result['message_id'];?>" >Delete Mail</button>
+														</form>
+														<script>
+																		$(document).ready(function()
+																		{	
+																			$("#d<?php echo $result['message_id'];?>").click(function()
+																			{
+																			var conf=confirm("Are You Sure you want to delete");
+																			if(conf==true)
+																			{
+																				var na=$("#m<?php echo $result['message_id'];?>").val();
+																				$.post("dele.php",{msgid:na});
+																			}
+																			else
+																			{
+																				alert("You had press Cancel");
+																			}
+																			});
+																		});
+																		</script>
+														
+														</td>
+													                                                    </tr>
+													
+													
+												<?php } ?>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        
+                                        <hr>
+                                        
                                         
                                     
-                                    </div> <!-- panel-body -->
-                                </div> <!-- End panel -->
-                                <!-- End message -->
-
-                                <!-- Replay -->
-                                
-                                <!-- Replay -->
-
-                            </div> <!-- Col-->
+                                    </div> <!-- panel body -->
+                                </div> <!-- panel --> <!-- Col-->
                         
                         </div><!-- End row -->
 

@@ -82,10 +82,12 @@
                                                                 <form action="delproj.php" method="POST">
                                                                 <input type="hidden" name="deldat" value="<?php echo $result['project_id'];?>">
                                                                 <input type="Submit" value="Delete" class="btn btn-danger " style="    padding: 3px 19px;" id="del<?php $result['project_id'];?>">
-                                                                </form>
-																
-																
-																</td>
+                                                                </form></td>
+																<td style="width:10%;">
+                                                                <form action="milestone.php" method="POST">
+                                                                <input type="hidden" name="milestone" value="<?php echo $result['project_id'];?>">
+                                                                <input type="Submit" value="Milestone" class="btn btn-success " style="    padding: 3px 19px;" id="del<?php $result['project_id'];?>">
+                                                                </form></td
 																
 																</tr>
 															 <div class="md-modal md-effect-8" id="mo<?php echo $result['project_id'];?>">
